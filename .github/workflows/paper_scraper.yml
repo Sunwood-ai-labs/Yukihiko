@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * 1-5'  # 月曜日から金曜日の午前0時（UTC）に実行
   workflow_dispatch:  # 手動実行のオプション
 
+# 明示的な権限設定を追加
+permissions:
+  contents: write
+
 jobs:
   scrape-and-update:  # ジョブ名を英語に変更
     name: スクレイプと更新  # 表示名として日本語を使用

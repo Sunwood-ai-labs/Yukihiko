@@ -1,4 +1,4 @@
-name: Label Adder
+name: 論文の自動ラベル追加
 
 on:
   issues:

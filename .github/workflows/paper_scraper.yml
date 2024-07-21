@@ -37,7 +37,7 @@ jobs:
           git config --local user.email "yukihiko.fuyuki@gmail.com"
           git config --local user.name "yukihiko-fuyuki"
           git add papers.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "📚 スクレイピングした論文データを更新" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "📚 [paper] スクレイピングした論文データを更新" && git push)
 
       - name: 変更のプッシュ
         uses: ad-m/github-push-action@master

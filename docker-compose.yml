@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      # - ~/.ssh:/root/.ssh:ro  # SSHキーをマウント
+      # - ./.cache:/root/.cache  # キャッシュディレクトリをマウント
+    env_file:
+      - .env
+    # command: python /app/apply_suggestion.py
+    tty: true

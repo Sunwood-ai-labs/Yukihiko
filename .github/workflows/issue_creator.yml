@@ -1,0 +1,41 @@
+name: 論文のIssue作成
+
+on:
+  # 手動でワークフローを実行できるようにします
+  workflow_dispatch:
+  # 平日（月曜から金曜）の毎日0時に実行
+  schedule:
+    - cron: '0 15 * * 1-5'
+
+jobs:
+  create-issues:
+    runs-on: ubuntu-latest
+    steps:
+    - name: リポジトリをチェックアウト
+      uses: actions/checkout@v2
+
+    - name: Pythonのセットアップ
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: 依存関係のインストール
+      run: |
+        python -m pip install --upgrade pip
+        pip install PyGithub loguru tqdm art
+
+    # 必要に応じて、LLMServiceの依存関係もインストールしてください
+    # 例: pip install openai
+
+    - name: Issue作成スクリプトの実行
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
+        # LLMServiceに必要な環境変数があれば、ここに追加してください
+        # 例: OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: python .github/scripts/issue_creator.py
+      
+# ---------------
+# debug code
+#
+# act workflow_dispatch -W .github/workflows/issue_creator.yml --env-file .env --secret-file .env -v

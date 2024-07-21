@@ -1,15 +1,5 @@
 [
   {
-    "title": "CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets",
-    "summary": "In the realm of digital creativity, our potential to craft intricate 3D worlds from imagination is often hampered by the limitations of existing digital tools, which demand extensive expertise and efforts. To narrow this disparity, we introduce CLAY, a 3D geometry and material generator designed to effortlessly transform human imagination into intricate 3D digital structures. CLAY supports classic text or image inputs as well as 3D-aware controls from diverse primitives (multi-view images, voxels, bounding boxes, point clouds, implicit representations, etc). At its core is a large-scale generative model composed of a multi-resolution Variational Autoencoder (VAE) and a minimalistic latent Diffusion Transformer (DiT), to extract rich 3D priors directly from a diverse range of 3D geometries. Specifically, it adopts neural fields to represent continuous and complete surfaces and uses a geometry generative module with pure transformer blocks in latent space. We present a progressive training scheme to train CLAY on an ultra large 3D model dataset obtained through a carefully designed processing pipeline, resulting in a 3D native geometry generator with 1.5 billion parameters. For appearance generation, CLAY sets out to produce physically-based rendering (PBR) textures by employing a multi-view material diffusion model that can generate 2K resolution textures with diffuse, roughness, and metallic modalities. We demonstrate using CLAY for a range of controllable 3D asset creations, from sketchy conceptual designs to production ready assets with intricate details. Even first time users can easily use CLAY to bring their vivid 3D imaginations to life, unleashing unlimited creativity.",
-    "link": "https://arxiv.org/abs/2406.13897",
-    "published": "Fri, 19 Jul 2024 14:43:21 GMT",
-    "authors": "Longwen Zhang, Ziyu Wang, Qixuan Zhang, Qiwei Qiu, Anqi Pang, Haoran Jiang, Wei Yang, Lan Xu, Jingyi Yu",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
     "title": "Retrieval-Enhanced Machine Learning: Synthesis and Opportunities",
     "summary": "In the field of language modeling, models augmented with retrieval components have emerged as a promising solution to address several challenges faced in the natural language processing (NLP) field, including knowledge grounding, interpretability, and scalability. Despite the primary focus on NLP, we posit that the paradigm of retrieval-enhancement can be extended to a broader spectrum of machine learning (ML) such as computer vision, time series prediction, and computational biology. Therefore, this work introduces a formal framework of this paradigm, Retrieval-Enhanced Machine Learning (REML), by synthesizing the literature in various domains in ML with consistent notations which is missing from the current literature. Also, we found that while a number of studies employ retrieval components to augment their models, there is a lack of integration with foundational Information Retrieval (IR) research. We bridge this gap between the seminal IR research and contemporary REML studies by investigating each component that comprises the REML framework. Ultimately, the goal of this work is to equip researchers across various disciplines with a comprehensive, formally structured framework of retrieval-enhanced models, thereby fostering interdisciplinary future research.",
     "link": "https://arxiv.org/abs/2407.12982",
@@ -133,26 +123,6 @@
     "link": "https://arxiv.org/abs/2407.13759",
     "published": "Fri, 19 Jul 2024 02:22:36 GMT",
     "authors": "Boyang Deng, Richard Tucker, Zhengqi Li, Leonidas Guibas, Noah Snavely, Gordon Wetzstein",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "Scaling Laws with Vocabulary: Larger Models Deserve Larger Vocabularies",
-    "summary": "Research on scaling large language models (LLMs) has primarily focused on model parameters and training data size, overlooking the role of vocabulary size. % Intuitively, larger vocabularies enable more efficient tokenization by representing sentences with fewer tokens, but they also increase the risk of under-fitting representations for rare tokens. We investigate how vocabulary size impacts LLM scaling laws by training models ranging from 33M to 3B parameters on up to 500B characters with various vocabulary configurations. We propose three complementary approaches for predicting the compute-optimal vocabulary size: IsoFLOPs analysis, derivative estimation, and parametric fit of the loss function. Our approaches converge on the same result that the optimal vocabulary size depends on the available compute budget and that larger models deserve larger vocabularies. However, most LLMs use too small vocabulary sizes. For example, we predict that the optimal vocabulary size of Llama2-70B should have been at least 216K, 7 times larger than its vocabulary of 32K. We validate our predictions empirically by training models with 3B parameters across different FLOPs budgets. Adopting our predicted optimal vocabulary size consistently improves downstream performance over commonly used vocabulary sizes. By increasing the vocabulary size from the conventional 32K to 43K, we improve performance on ARC-Challenge from 29.1 to 32.0 with the same 2.3e21 FLOPs. Our work emphasizes the necessity of jointly considering model parameters and vocabulary size for efficient scaling.",
-    "link": "https://arxiv.org/abs/2407.13623",
-    "published": "Fri, 19 Jul 2024 01:08:51 GMT",
-    "authors": "Chaofan Tao, Qian Liu, Longxu Dou, Niklas Muennighoff, Zhongwei Wan, Ping Luo, Min Lin, Ngai Wong",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "CodeV: Empowering LLMs for Verilog Generation through Multi-Level Summarization",
-    "summary": "The increasing complexity and high costs associated with modern processor design have led to a surge in demand for processor design automation. Instruction-tuned large language models (LLMs) have demonstrated remarkable performance in automatically generating code for general-purpose programming languages like Python. However, these methods fail on hardware description languages (HDLs) like Verilog due to the scarcity of high-quality instruction tuning data, as even advanced LLMs like GPT-3.5 exhibit limited performance on Verilog generation. Regarding this issue, we observe that (1) Verilog code collected from the real world has higher quality than those generated by LLMs. (2) LLMs like GPT-3.5 excel in summarizing Verilog code rather than generating it. Based on these observations, this paper introduces CodeV, a series of open-source instruction-tuned Verilog generation LLMs. Instead of generating descriptions first and then getting the corresponding code from advanced LLMs, we prompt the LLM with Verilog code and let the LLM generate the corresponding natural language description by multi-level summarization. Experimental results show that CodeV relatively surpasses the previous open-source SOTA by 14.4% (BetterV in VerilogEval) and 11.3% (RTLCoder in RTLLM) respectively, and also relatively outperforms previous commercial SOTA GPT-4 by 22.1% in VerilogEval.",
-    "link": "https://arxiv.org/abs/2407.10424",
-    "published": "Fri, 19 Jul 2024 00:38:17 GMT",
-    "authors": "Yang Zhao, Di Huang, Chongxiao Li, Pengwei Jin, Ziyuan Nan, Tianyun Ma, Lei Qi, Yansong Pan, Zhenxing Zhang, Rui Zhang, Xishan Zhang, Zidong Du, Qi Guo, Xing Hu, Yunji Chen",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"

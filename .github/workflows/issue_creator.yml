@@ -2,9 +2,11 @@ name: 論文のIssue作成
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - 'papers.json'  # papers.jsonが更新されたときにトリガー
-  workflow_dispatch:  # 手動実行のオプション
+      - 'papers.json'
+  workflow_dispatch:
 
 jobs:
   create-issues:

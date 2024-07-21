@@ -1,0 +1,8 @@
+feedparser==6.0.8
+loguru
+litellm
+beautifulsoup4==4.9.3
+markdown
+PyGithub
+pydantic_settings
+tqdm

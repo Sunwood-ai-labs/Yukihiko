@@ -27,6 +27,7 @@ jobs:
 
     - name: Issue作成スクリプトの実行
       env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
       run: python .github/scripts/issue_creator.py

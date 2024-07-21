@@ -1,11 +1,12 @@
 name: 論文のIssue作成
 
 on:
-  # 手動でワークフローを実行できるようにします
-  workflow_dispatch:
-  # 平日（月曜から金曜）の毎日0時に実行
+  push:
+    paths:
+      - 'papers.json'  # papers.jsonが更新されたときにトリガー
+  workflow_dispatch:  # 手動実行のオプション
   schedule:
-    - cron: '0 15 * * 1-5'
+    - cron: '0 15 * * 1-5'  # 平日（月曜から金曜）の毎日0時（UTC）に実行
 
 jobs:
   create-issues:
@@ -24,17 +25,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install PyGithub loguru tqdm art
 
-    # 必要に応じて、LLMServiceの依存関係もインストールしてください
-    # 例: pip install openai
-
     - name: Issue作成スクリプトの実行
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
-        # LLMServiceに必要な環境変数があれば、ここに追加してください
-        # 例: OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: python .github/scripts/issue_creator.py
-      
+
 # ---------------
 # debug code
 #

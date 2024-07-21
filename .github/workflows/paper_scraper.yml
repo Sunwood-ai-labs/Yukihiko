@@ -27,6 +27,8 @@ jobs:
         run: python .github/scripts/scraper.py
 
       - name: 変更があればコミットとプッシュ
+        env:
+          GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -36,7 +38,7 @@ jobs:
       - name: 変更のプッシュ
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
           branch: ${{ github.ref }}
 
 # ---------------

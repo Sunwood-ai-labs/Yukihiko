@@ -5,8 +5,6 @@ on:
     paths:
       - 'papers.json'  # papers.jsonが更新されたときにトリガー
   workflow_dispatch:  # 手動実行のオプション
-  schedule:
-    - cron: '0 15 * * 1-5'  # 平日（月曜から金曜）の毎日0時（UTC）に実行
 
 jobs:
   create-issues:

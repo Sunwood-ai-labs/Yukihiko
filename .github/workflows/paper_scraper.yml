@@ -1,0 +1,45 @@
+name: 論文スクレイパーの実行
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'  # 月曜日から金曜日の午前0時（UTC）に実行
+  workflow_dispatch:  # 手動実行のオプション
+
+jobs:
+  scrape-and-update:  # ジョブ名を英語に変更
+    name: スクレイプと更新  # 表示名として日本語を使用
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v2
+
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: 依存パッケージのインストール
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser requests beautifulsoup4 loguru art lxml
+
+      - name: 論文スクレイパーの実行
+        run: python .github/scripts/scraper.py
+
+      - name: 変更があればコミットとプッシュ
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add papers.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "スクレイピングした論文データを更新" && git push)
+
+      - name: 変更のプッシュ
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+# ---------------
+# debug code
+#
+# act workflow_dispatch -W .github/workflows/paper_scraper.yml --env-file .env --secret-file .env -v

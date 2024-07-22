@@ -32,44 +32,33 @@ jobs:
       - name: 論文スクレイパーの実行
         run: python .github/scripts/scraper.py
 
-      - name: 変更の確認
+      - name: 変更の確認とコミット
         id: check_changes
-        run: |
-          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
-
-      - name: 既存のブランチの削除
-        if: steps.check_changes.outputs.changes == 'true'
-        run: |
-          git push origin --delete update-papers-data || true
-
-      - name: 変更があれば新しいブランチを作成してコミット
-        if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config --local user.email "yukihiko.fuyuki@gmail.com"
           git config --local user.name "yukihiko-fuyuki"
-          git checkout -b update-papers-data
           git add papers.json
-          git commit -m "📚 [paper] スクレイピングした論文データを更新"
-          git push -u origin update-papers-data
+          if git diff --staged --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "📚 [paper] スクレイピングした論文データを更新"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
 
-      - name: プルリクエストの作成
+      - name: 変更をプッシュしてプルリクエストを作成
         if: steps.check_changes.outputs.changes == 'true'
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
-          commit-message: 📚 [paper] スクレイピングした論文データを更新
-          title: '論文データの更新'
-          body: 'このプルリクエストは自動的に作成されました。スクレイピングされた最新の論文データが含まれています。'
-          branch: update-papers-data
-          base: main
-          delete-branch: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
+        run: |
+          branch_name="update-papers-data-$(date +'%Y%m%d%H%M%S')"
+          git checkout -b $branch_name
+          git push -u origin $branch_name
+          gh pr create --title "論文データの更新" --body "このプルリクエストは自動的に作成されました。スクレイピングされた最新の論文データが含まれています。" --base main --head $branch_name
 
       - name: プルリクエストの自動マージ
         if: steps.check_changes.outputs.changes == 'true'
-        uses: pascalgn/automerge-action@v0.14.3
         env:
           GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
-          MERGE_LABELS: ""
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "🔀 論文データを更新 (自動マージ)"
-          MERGE_DELETE_BRANCH: "true"
+        run: |
+          pr_number=$(gh pr list --head $branch_name --json number --jq '.[0].number')
+          gh pr merge $pr_number --auto --squash --delete-branch

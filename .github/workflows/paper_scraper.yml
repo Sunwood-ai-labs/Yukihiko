@@ -53,12 +53,17 @@ jobs:
           branch_name="update-papers-data-$(date +'%Y%m%d%H%M%S')"
           git checkout -b $branch_name
           git push -u origin $branch_name
-          gh pr create --title "論文データの更新" --body "このプルリクエストは自動的に作成されました。スクレイピングされた最新の論文データが含まれています。" --base main --head $branch_name
+          pr_url=$(gh pr create --title "📖 論文データの更新" --body "このプルリクエストは自動的に作成されました。スクレイピングされた最新の論文データが含まれています。" --base main --head $branch_name)
+          echo "PR_URL=$pr_url" >> $GITHUB_ENV
 
       - name: プルリクエストの自動マージ
         if: steps.check_changes.outputs.changes == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
         run: |
-          pr_number=$(gh pr list --head $branch_name --json number --jq '.[0].number')
-          gh pr merge $pr_number --auto --squash --delete-branch
+          if [ -n "$PR_URL" ]; then
+            pr_number=$(echo $PR_URL | awk -F'/' '{print $NF}')
+            gh pr merge $pr_number --auto --squash --delete-branch
+          else
+            echo "プルリクエストのURLが見つかりません。マージをスキップします。"
+          fi

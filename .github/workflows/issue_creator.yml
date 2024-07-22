@@ -2,6 +2,8 @@ name: 論文のIssue作成
 
 on:
   push:
+    branches:
+      - main  # または適切なブランチ名
     paths:
       - 'papers.json'
   workflow_dispatch:

@@ -122,16 +122,6 @@
     "source": "Hugging Face"
   },
   {
-    "title": "SparseCraft: Few-Shot Neural Reconstruction through Stereopsis Guided Geometric Linearization",
-    "summary": "We present a novel approach for recovering 3D shape and view dependent appearance from a few colored images, enabling efficient 3D reconstruction and novel view synthesis. Our method learns an implicit neural representation in the form of a Signed Distance Function (SDF) and a radiance field. The model is trained progressively through ray marching enabled volumetric rendering, and regularized with learning-free multi-view stereo (MVS) cues. Key to our contribution is a novel implicit neural shape function learning strategy that encourages our SDF field to be as linear as possible near the level-set, hence robustifying the training against noise emanating from the supervision and regularization signals. Without using any pretrained priors, our method, called SparseCraft, achieves state-of-the-art performances both in novel-view synthesis and reconstruction from sparse views in standard benchmarks, while requiring less than 10 minutes for training.",
-    "link": "https://arxiv.org/abs/2407.14257",
-    "published": "Mon, 22 Jul 2024 00:25:34 GMT",
-    "authors": "Mae Younes, Amine Ouasfi, Adnane Boukhayma",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
     "title": "PlacidDreamer: Advancing Harmony in Text-to-3D Generation",
     "summary": "Recently, text-to-3D generation has attracted significant attention, resulting in notable performance enhancements. Previous methods utilize end-to-end 3D generation models to initialize 3D Gaussians, multi-view diffusion models to enforce multi-view consistency, and text-to-image diffusion models to refine details with score distillation algorithms. However, these methods exhibit two limitations. Firstly, they encounter conflicts in generation directions since different models aim to produce diverse 3D assets. Secondly, the issue of over-saturation in score distillation has not been thoroughly investigated and solved. To address these limitations, we propose PlacidDreamer, a text-to-3D framework that harmonizes initialization, multi-view generation, and text-conditioned generation with a single multi-view diffusion model, while simultaneously employing a novel score distillation algorithm to achieve balanced saturation. To unify the generation direction, we introduce the Latent-Plane module, a training-friendly plug-in extension that enables multi-view diffusion models to provide fast geometry reconstruction for initialization and enhanced multi-view images to personalize the text-to-image diffusion model. To address the over-saturation problem, we propose to view score distillation as a multi-objective optimization problem and introduce the Balanced Score Distillation algorithm, which offers a Pareto Optimal solution that achieves both rich details and balanced saturation. Extensive experiments validate the outstanding capabilities of our PlacidDreamer. The code is available at https://github.com/HansenHuang0823/PlacidDreamer.",
     "link": "https://arxiv.org/abs/2407.13976",

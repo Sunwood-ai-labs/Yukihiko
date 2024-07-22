@@ -95,7 +95,7 @@ class PaperScraper:
     def scrape(self):
         tprint(">>  PaperScraper", font="rnd-large")
         logger.info("論文スクレイピングを開始します")
-        arxiv_papers = self.scrape_arxiv()
+        # arxiv_papers = self.scrape_arxiv()
         huggingface_papers = self.scrape_huggingface()
 
         # all_papers = arxiv_papers + huggingface_papers
@@ -105,7 +105,7 @@ class PaperScraper:
             json.dump(all_papers, f, ensure_ascii=False, indent=2)
 
         logger.success(f"合計{len(all_papers)}件の論文を抽出しました")
-        logger.info(f"arXiv: {len(arxiv_papers)}件")
+        # logger.info(f"arXiv: {len(arxiv_papers)}件")
         logger.info(f"Hugging Face: {len(huggingface_papers)}件")
         logger.info(f"結果を {self.output_path} に保存しました")
 

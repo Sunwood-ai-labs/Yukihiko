@@ -1,159 +1,155 @@
 [
   {
-    "title": "CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets",
-    "summary": "In the realm of digital creativity, our potential to craft intricate 3D worlds from imagination is often hampered by the limitations of existing digital tools, which demand extensive expertise and efforts. To narrow this disparity, we introduce CLAY, a 3D geometry and material generator designed to effortlessly transform human imagination into intricate 3D digital structures. CLAY supports classic text or image inputs as well as 3D-aware controls from diverse primitives (multi-view images, voxels, bounding boxes, point clouds, implicit representations, etc). At its core is a large-scale generative model composed of a multi-resolution Variational Autoencoder (VAE) and a minimalistic latent Diffusion Transformer (DiT), to extract rich 3D priors directly from a diverse range of 3D geometries. Specifically, it adopts neural fields to represent continuous and complete surfaces and uses a geometry generative module with pure transformer blocks in latent space. We present a progressive training scheme to train CLAY on an ultra large 3D model dataset obtained through a carefully designed processing pipeline, resulting in a 3D native geometry generator with 1.5 billion parameters. For appearance generation, CLAY sets out to produce physically-based rendering (PBR) textures by employing a multi-view material diffusion model that can generate 2K resolution textures with diffuse, roughness, and metallic modalities. We demonstrate using CLAY for a range of controllable 3D asset creations, from sketchy conceptual designs to production ready assets with intricate details. Even first time users can easily use CLAY to bring their vivid 3D imaginations to life, unleashing unlimited creativity.",
-    "link": "https://arxiv.org/abs/2406.13897",
-    "published": "Fri, 19 Jul 2024 14:43:21 GMT",
-    "authors": "Longwen Zhang, Ziyu Wang, Qixuan Zhang, Qiwei Qiu, Anqi Pang, Haoran Jiang, Wei Yang, Lan Xu, Jingyi Yu",
+    "title": "Qalam : A Multimodal LLM for Arabic Optical Character and Handwriting Recognition",
+    "summary": "Arabic Optical Character Recognition (OCR) and Handwriting Recognition (HWR) pose unique challenges due to the cursive and context-sensitive nature of the Arabic script. This study introduces Qalam, a novel foundation model designed for Arabic OCR and HWR, built on a SwinV2 encoder and RoBERTa decoder architecture. Our model significantly outperforms existing methods, achieving a Word Error Rate (WER) of just 0.80% in HWR tasks and 1.18% in OCR tasks. We train Qalam on a diverse dataset, including over 4.5 million images from Arabic manuscripts and a synthetic dataset comprising 60k image-text pairs. Notably, Qalam demonstrates exceptional handling of Arabic diacritics, a critical feature in Arabic scripts. Furthermore, it shows a remarkable ability to process high-resolution inputs, addressing a common limitation in current OCR systems. These advancements underscore Qalam's potential as a leading solution for Arabic script recognition, offering a significant leap in accuracy and efficiency.",
+    "link": "https://arxiv.org/abs/2407.13559",
+    "published": "Mon, 22 Jul 2024 09:08:32 GMT",
+    "authors": "Gagan Bhatia, El Moatez Billah Nagoudi, Fakhraddin Alwajih, Muhammad Abdul-Mageed",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "Retrieval-Enhanced Machine Learning: Synthesis and Opportunities",
-    "summary": "In the field of language modeling, models augmented with retrieval components have emerged as a promising solution to address several challenges faced in the natural language processing (NLP) field, including knowledge grounding, interpretability, and scalability. Despite the primary focus on NLP, we posit that the paradigm of retrieval-enhancement can be extended to a broader spectrum of machine learning (ML) such as computer vision, time series prediction, and computational biology. Therefore, this work introduces a formal framework of this paradigm, Retrieval-Enhanced Machine Learning (REML), by synthesizing the literature in various domains in ML with consistent notations which is missing from the current literature. Also, we found that while a number of studies employ retrieval components to augment their models, there is a lack of integration with foundational Information Retrieval (IR) research. We bridge this gap between the seminal IR research and contemporary REML studies by investigating each component that comprises the REML framework. Ultimately, the goal of this work is to equip researchers across various disciplines with a comprehensive, formally structured framework of retrieval-enhanced models, thereby fostering interdisciplinary future research.",
-    "link": "https://arxiv.org/abs/2407.12982",
-    "published": "Fri, 19 Jul 2024 11:08:05 GMT",
-    "authors": "To Eun Kim, Alireza Salemi, Andrew Drozdov, Fernando Diaz, Hamed Zamani",
+    "title": "VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding",
+    "summary": "In recent years, notable advancements have been made in the domain of visual document understanding, with the prevailing architecture comprising a cascade of vision and language models. The text component can either be extracted explicitly with the use of external OCR models in OCR-based approaches, or alternatively, the vision model can be endowed with reading capabilities in OCR-free approaches. Typically, the queries to the model are input exclusively to the language component, necessitating the visual features to encompass the entire document. In this paper, we present VisFocus, an OCR-free method designed to better exploit the vision encoder's capacity by coupling it directly with the language prompt. To do so, we replace the down-sampling layers with layers that receive the input prompt and allow highlighting relevant parts of the document, while disregarding others. We pair the architecture enhancements with a novel pre-training task, using language masking on a snippet of the document text fed to the visual encoder in place of the prompt, to empower the model with focusing capabilities. Consequently, VisFocus learns to allocate its attention to text patches pertinent to the provided prompt. Our experiments demonstrate that this prompt-guided visual encoding approach significantly improves performance, achieving state-of-the-art results on various benchmarks.",
+    "link": "https://arxiv.org/abs/2407.12594",
+    "published": "Mon, 22 Jul 2024 07:05:48 GMT",
+    "authors": "Ofir Abramovich, Niv Nayman, Sharon Fogel, Inbal Lavi, Ron Litman, Shahar Tsiper, Royee Tichauer, Srikar Appalaraju, Shai Mazor, R. Manmatha",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "Attention Overflow: Language Model Input Blur during Long-Context Missing Items Recommendation",
-    "summary": "Large language models (LLMs) can suggest missing elements from items listed in a prompt, which can be used for list completion or recommendations based on users' history. However, their performance degrades when presented with too many items, as they start to suggest items already included in the input list. This occurs at around 100 items for mid-2024 flagship LLMs. We evaluate this phenomenon on both synthetic problems (e.g., finding missing numbers in a given range of shuffled integers) and realistic movie recommendation scenarios. We refer to this issue as attention overflow, as preventing repetition requires attending to all items simultaneously. Although iterative loops can mitigate this problem, their costs increase with the repetition rate, affecting the language models' ability to derive novelty from lengthy inputs.",
-    "link": "https://arxiv.org/abs/2407.13481",
-    "published": "Fri, 19 Jul 2024 05:45:10 GMT",
-    "authors": "Damien Sileo",
+    "title": "SciCode: A Research Coding Benchmark Curated by Scientists",
+    "summary": "Since language models (LMs) now outperform average humans on many challenging tasks, it has become increasingly difficult to develop challenging, high-quality, and realistic evaluations. We address this issue by examining LMs' capabilities to generate code for solving real scientific research problems. Incorporating input from scientists and AI researchers in 16 diverse natural science sub-fields, including mathematics, physics, chemistry, biology, and materials science, we created a scientist-curated coding benchmark, SciCode. The problems in SciCode naturally factorize into multiple subproblems, each involving knowledge recall, reasoning, and code synthesis. In total, SciCode contains 338 subproblems decomposed from 80 challenging main problems. It offers optional descriptions specifying useful scientific background information and scientist-annotated gold-standard solutions and test cases for evaluation. Claude3.5-Sonnet, the best-performing model among those tested, can solve only 4.6% of the problems in the most realistic setting. We believe that SciCode demonstrates both contemporary LMs' progress towards becoming helpful scientific assistants and sheds light on the development and evaluation of scientific AI in the future.",
+    "link": "https://arxiv.org/abs/2407.13168",
+    "published": "Mon, 22 Jul 2024 06:29:02 GMT",
+    "authors": "Minyang Tian, Luyu Gao, Shizhuo Dylan Zhang, Xinan Chen, Cunwei Fan, Xuefei Guo, Roland Haas, Pan Ji, Kittithat Krongchon, Yao Li, Shengyan Liu, Di Luo, Yutao Ma, Hao Tong, Kha Trinh, Chenyu Tian, Zihan Wang, Bohao Wu, Yanyu Xiong, Shengzhu Yin, Minhui Zhu, Kilian Lieret, Yanxin Lu, Genglin Liu, Yufeng Du, Tianhua Tao, Ofir Press, Jamie Callan, Eliu Huerta, Hao Peng",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "BRIGHT: A Realistic and Challenging Benchmark for Reasoning-Intensive Retrieval",
-    "summary": "Existing retrieval benchmarks primarily consist of information-seeking queries (e.g., aggregated questions from search engines) where keyword or semantic-based retrieval is usually sufficient. However, many complex real-world queries require in-depth reasoning to identify relevant documents that go beyond surface form matching. For example, finding documentation for a coding question requires understanding the logic and syntax of the functions involved. To better benchmark retrieval on such challenging queries, we introduce BRIGHT, the first text retrieval benchmark that requires intensive reasoning to retrieve relevant documents. BRIGHT is constructed from the 1,398 real-world queries collected from diverse domains (such as economics, psychology, robotics, software engineering, earth sciences, etc.), sourced from naturally occurring or carefully curated human data. Extensive evaluation reveals that even state-of-the-art retrieval models perform poorly on BRIGHT. The leading model on the MTEB leaderboard [38 ], which achieves a score of 59.0 nDCG@10,2 produces a score of nDCG@10 of 18.0 on BRIGHT. We further demonstrate that augmenting queries with Chain-of-Thought reasoning generated by large language models (LLMs) improves performance by up to 12.2 points. Moreover, BRIGHT is robust against data leakage during pretraining of the benchmarked models as we validate by showing similar performance even when documents from the benchmark are included in the training data. We believe that BRIGHT paves the way for future research on retrieval systems in more realistic and challenging settings. Our code and data are available at https://brightbenchmark.github.io.",
-    "link": "https://arxiv.org/abs/2407.12883",
-    "published": "Fri, 19 Jul 2024 05:04:39 GMT",
-    "authors": "Hongjin Su, Howard Yen, Mengzhou Xia, Weijia Shi, Niklas Muennighoff, Han-yu Wang, Haisu Liu, Quan Shi, Zachary S. Siegel, Michael Tang, Ruoxi Sun, Jinsung Yoon, Sercan O. Arik, Danqi Chen, Tao Yu",
+    "title": "Fast Matrix Multiplications for Lookup Table-Quantized LLMs",
+    "summary": "The deployment of large language models (LLMs) is often constrained by memory bandwidth, where the primary bottleneck is the cost of transferring model parameters from the GPU's global memory to its registers. When coupled with custom kernels that fuse the dequantization and matmul operations, weight-only quantization can thus enable faster inference by reducing the amount of memory movement. However, developing high-performance kernels for weight-quantized LLMs presents substantial challenges, especially when the weights are compressed to non-evenly-divisible bit widths (e.g., 3 bits) with non-uniform, lookup table (LUT) quantization. This paper describes FLUTE, a flexible lookup table engine for LUT-quantized LLMs, which uses offline restructuring of the quantized weight matrix to minimize bit manipulations associated with unpacking, and vectorization and duplication of the lookup table to mitigate shared memory bandwidth constraints. At batch sizes &lt; 32 and quantization group size of 128 (typical in LLM inference), the FLUTE kernel can be 2-4x faster than existing GEMM kernels. As an application of FLUTE, we explore a simple extension to lookup table-based NormalFloat quantization and apply it to quantize LLaMA3 to various configurations, obtaining competitive quantization performance against strong baselines while obtaining an end-to-end throughput increase of 1.5 to 2 times.",
+    "link": "https://arxiv.org/abs/2407.10960",
+    "published": "Mon, 22 Jul 2024 03:57:44 GMT",
+    "authors": "Han Guo, William Brandon, Radostin Cholakov, Jonathan Ragan-Kelley, Eric P. Xing, Yoon Kim",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "Benchmarking Trustworthiness of Multimodal Large Language Models: A Comprehensive Study",
-    "summary": "Despite the superior capabilities of Multimodal Large Language Models (MLLMs) across diverse tasks, they still face significant trustworthiness challenges. Yet, current literature on the assessment of trustworthy MLLMs remains limited, lacking a holistic evaluation to offer thorough insights into future improvements. In this work, we establish MultiTrust, the first comprehensive and unified benchmark on the trustworthiness of MLLMs across five primary aspects: truthfulness, safety, robustness, fairness, and privacy. Our benchmark employs a rigorous evaluation strategy that addresses both multimodal risks and cross-modal impacts, encompassing 32 diverse tasks with self-curated datasets. Extensive experiments with 21 modern MLLMs reveal some previously unexplored trustworthiness issues and risks, highlighting the complexities introduced by the multimodality and underscoring the necessity for advanced methodologies to enhance their reliability. For instance, typical proprietary models still struggle with the perception of visually confusing images and are vulnerable to multimodal jailbreaking and adversarial attacks; MLLMs are more inclined to disclose privacy in text and reveal ideological and cultural biases even when paired with irrelevant images in inference, indicating that the multimodality amplifies the internal risks from base LLMs. Additionally, we release a scalable toolbox for standardized trustworthiness research, aiming to facilitate future advancements in this important field. Code and resources are publicly available at: https://multi-trust.github.io/.",
-    "link": "https://arxiv.org/abs/2406.07057",
-    "published": "Fri, 19 Jul 2024 04:03:40 GMT",
-    "authors": "Yichi Zhang, Yao Huang, Yitong Sun, Chang Liu, Zhe Zhao, Zhengwei Fang, Yifan Wang, Huanran Chen, Xiao Yang, Xingxing Wei, Hang Su, Yinpeng Dong, Jun Zhu",
+    "title": "ChatQA 2: Bridging the Gap to Proprietary LLMs in Long Context and RAG Capabilities",
+    "summary": "In this work, we introduce ChatQA 2, a Llama3-based model designed to bridge the gap between open-access LLMs and leading proprietary models (e.g., GPT-4-Turbo) in long-context understanding and retrieval-augmented generation (RAG) capabilities. These two capabilities are essential for LLMs to process large volumes of information that cannot fit into a single prompt and are complementary to each other, depending on the downstream tasks and computational budgets. We present a detailed continued training recipe to extend the context window of Llama3-70B-base from 8K to 128K tokens, along with a three-stage instruction tuning process to enhance the model's instruction-following, RAG performance, and long-context understanding capabilities. Our results demonstrate that the Llama3-ChatQA-2-70B model achieves accuracy comparable to GPT-4-Turbo-2024-0409 on many long-context understanding tasks and surpasses it on the RAG benchmark. Interestingly, we find that the state-of-the-art long-context retriever can alleviate the top-k context fragmentation issue in RAG, further improving RAG-based results for long-context understanding tasks. We also provide extensive comparisons between RAG and long-context solutions using state-of-the-art long-context LLMs.",
+    "link": "https://arxiv.org/abs/2407.14482",
+    "published": "Mon, 22 Jul 2024 01:46:47 GMT",
+    "authors": "Peng Xu, Wei Ping, Xianchao Wu, Zihan Liu, Mohammad Shoeybi, Bryan Catanzaro",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "PM-LLM-Benchmark: Evaluating Large Language Models on Process Mining Tasks",
-    "summary": "Large Language Models (LLMs) have the potential to semi-automate some process mining (PM) analyses. While commercial models are already adequate for many analytics tasks, the competitive level of open-source LLMs in PM tasks is unknown. In this paper, we propose PM-LLM-Benchmark, the first comprehensive benchmark for PM focusing on domain knowledge (process-mining-specific and process-specific) and on different implementation strategies. We focus also on the challenges in creating such a benchmark, related to the public availability of the data and on evaluation biases by the LLMs. Overall, we observe that most of the considered LLMs can perform some process mining tasks at a satisfactory level, but tiny models that would run on edge devices are still inadequate. We also conclude that while the proposed benchmark is useful for identifying LLMs that are adequate for process mining tasks, further research is needed to overcome the evaluation biases and perform a more thorough ranking of the competitive LLMs.",
-    "link": "https://arxiv.org/abs/2407.13244",
-    "published": "Fri, 19 Jul 2024 03:13:40 GMT",
-    "authors": "Alessandro Berti, Humam Kourani, Wil M. P. van der Aalst",
+    "title": "EVLM: An Efficient Vision-Language Model for Visual Understanding",
+    "summary": "In the field of multi-modal language models, the majority of methods are built on an architecture similar to LLaVA. These models use a single-layer ViT feature as a visual prompt, directly feeding it into the language models alongside textual tokens. However, when dealing with long sequences of visual signals or inputs such as videos, the self-attention mechanism of language models can lead to significant computational overhead. Additionally, using single-layer ViT features makes it challenging for large language models to perceive visual signals fully. This paper proposes an efficient multi-modal language model to minimize computational costs while enabling the model to perceive visual signals as comprehensively as possible. Our method primarily includes: (1) employing cross-attention to image-text interaction similar to Flamingo. (2) utilize hierarchical ViT features. (3) introduce the Mixture of Experts (MoE) mechanism to enhance model effectiveness. Our model achieves competitive scores on public multi-modal benchmarks and performs well in tasks such as image captioning and video captioning.",
+    "link": "https://arxiv.org/abs/2407.14177",
+    "published": "Mon, 22 Jul 2024 01:18:09 GMT",
+    "authors": "Kaibing Chen, Dong Shen, Hanwen Zhong, Huasong Zhong, Kui Xia, Di Xu, Wei Yuan, Yifei Hu, Bin Wen, Tianke Zhang, Changyi Liu, Dewen Fan, Huihui Xiao, Jiahong Wu, Fan Yang, Size Li, Di Zhang",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "A Comparative Study on Automatic Coding of Medical Letters with Explainability",
-    "summary": "This study aims to explore the implementation of Natural Language Processing (NLP) and machine learning (ML) techniques to automate the coding of medical letters with visualised explainability and light-weighted local computer settings. Currently in clinical settings, coding is a manual process that involves assigning codes to each condition, procedure, and medication in a patient's paperwork (e.g., 56265001 heart disease using SNOMED CT code). There are preliminary research on automatic coding in this field using state-of-the-art ML models; however, due to the complexity and size of the models, the real-world deployment is not achieved. To further facilitate the possibility of automatic coding practice, we explore some solutions in a local computer setting; in addition, we explore the function of explainability for transparency of AI models. We used the publicly available MIMIC-III database and the HAN/HLAN network models for ICD code prediction purposes. We also experimented with the mapping between ICD and SNOMED CT knowledge bases. In our experiments, the models provided useful information for 97.98\\% of codes. The result of this investigation can shed some light on implementing automatic clinical coding in practice, such as in hospital settings, on the local computers used by clinicians , project page https://github.com/Glenj01/Medical-Coding.",
-    "link": "https://arxiv.org/abs/2407.13638",
-    "published": "Fri, 19 Jul 2024 03:10:30 GMT",
-    "authors": "Jamie Glen, Lifeng Han, Paul Rayson, Goran Nenadic",
-    "github_urls": [
-      "https://github.com/Glenj01/Medical-Coding."
-    ],
+    "title": "Visual Text Generation in the Wild",
+    "summary": "Recently, with the rapid advancements of generative models, the field of visual text generation has witnessed significant progress. However, it is still challenging to render high-quality text images in real-world scenarios, as three critical criteria should be satisfied: (1) Fidelity: the generated text images should be photo-realistic and the contents are expected to be the same as specified in the given conditions; (2) Reasonability: the regions and contents of the generated text should cohere with the scene; (3) Utility: the generated text images can facilitate related tasks (e.g., text detection and recognition). Upon investigation, we find that existing methods, either rendering-based or diffusion-based, can hardly meet all these aspects simultaneously, limiting their application range. Therefore, we propose in this paper a visual text generator (termed SceneVTG), which can produce high-quality text images in the wild. Following a two-stage paradigm, SceneVTG leverages a Multimodal Large Language Model to recommend reasonable text regions and contents across multiple scales and levels, which are used by a conditional diffusion model as conditions to generate text images. Extensive experiments demonstrate that the proposed SceneVTG significantly outperforms traditional rendering-based methods and recent diffusion-based methods in terms of fidelity and reasonability. Besides, the generated images provide superior utility for tasks involving text detection and text recognition. Code and datasets are available at AdvancedLiterateMachinery.",
+    "link": "https://arxiv.org/abs/2407.14138",
+    "published": "Mon, 22 Jul 2024 01:02:29 GMT",
+    "authors": "Yuanzhi Zhu, Jiawei Liu, Feiyu Gao, Wenyu Liu, Xinggang Wang, Peng Wang, Fei Huang, Cong Yao, Zhibo Yang",
+    "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "Benchmark Agreement Testing Done Right: A Guide for LLM Benchmark Evaluation",
-    "summary": "Recent advancements in Language Models (LMs) have catalyzed the creation of multiple benchmarks, designed to assess these models' general capabilities. A crucial task, however, is assessing the validity of the benchmarks themselves. This is most commonly done via Benchmark Agreement Testing (BAT), where new benchmarks are validated against established ones using some agreement metric (e.g., rank correlation). Despite the crucial role of BAT for benchmark builders and consumers, there are no standardized procedures for such agreement testing. This deficiency can lead to invalid conclusions, fostering mistrust in benchmarks and upending the ability to properly choose the appropriate benchmark to use. By analyzing over 40 prominent benchmarks, we demonstrate how some overlooked methodological choices can significantly influence BAT results, potentially undermining the validity of conclusions. To address these inconsistencies, we propose a set of best practices for BAT and demonstrate how utilizing these methodologies greatly improves BAT robustness and validity. To foster adoption and facilitate future research,, we introduce BenchBench, a python package for BAT, and release the BenchBench-leaderboard, a meta-benchmark designed to evaluate benchmarks using their peers. Our findings underscore the necessity for standardized BAT, ensuring the robustness and validity of benchmark evaluations in the evolving landscape of language model research.   BenchBench Package: https://github.com/IBM/BenchBench   Leaderboard: https://huggingface.co/spaces/per/BenchBench",
-    "link": "https://arxiv.org/abs/2407.13696",
-    "published": "Fri, 19 Jul 2024 03:08:02 GMT",
-    "authors": "Yotam Perlitz, Ariel Gera, Ofir Arviv, Asaf Yehudai, Elron Bandel, Eyal Shnarch, Michal Shmueli-Scheuer, Leshem Choshen",
-    "github_urls": [
-      "https://github.com/IBM/BenchBench"
-    ],
+    "title": "LazyLLM: Dynamic Token Pruning for Efficient Long Context LLM Inference",
+    "summary": "The inference of transformer-based large language models consists of two sequential stages: 1) a prefilling stage to compute the KV cache of prompts and generate the first token, and 2) a decoding stage to generate subsequent tokens. For long prompts, the KV cache must be computed for all tokens during the prefilling stage, which can significantly increase the time needed to generate the first token. Consequently, the prefilling stage may become a bottleneck in the generation process. An open question remains whether all prompt tokens are essential for generating the first token. To answer this, we introduce a novel method, LazyLLM, that selectively computes the KV for tokens important for the next token prediction in both the prefilling and decoding stages. Contrary to static pruning approaches that prune the prompt at once, LazyLLM allows language models to dynamically select different subsets of tokens from the context in different generation steps, even though they might be pruned in previous steps. Extensive experiments on standard datasets across various tasks demonstrate that LazyLLM is a generic method that can be seamlessly integrated with existing language models to significantly accelerate the generation without fine-tuning. For instance, in the multi-document question-answering task, LazyLLM accelerates the prefilling stage of the LLama 2 7B model by 2.34x while maintaining accuracy.",
+    "link": "https://arxiv.org/abs/2407.14057",
+    "published": "Mon, 22 Jul 2024 00:56:10 GMT",
+    "authors": "Qichen Fu, Minsik Cho, Thomas Merth, Sachin Mehta, Mohammad Rastegari, Mahyar Najibi",
+    "github_urls": [],
+    "huggingface_urls": [],
+    "source": "Hugging Face"
+  },
+  {
+    "title": "Phi-3 Safety Post-Training: Aligning Language Models with a \"Break-Fix\" Cycle",
+    "summary": "Recent innovations in language model training have demonstrated that it is possible to create highly performant models that are small enough to run on a smartphone. As these models are deployed in an increasing number of domains, it is critical to ensure that they are aligned with human preferences and safety considerations. In this report, we present our methodology for safety aligning the Phi-3 series of language models. We utilized a \"break-fix\" cycle, performing multiple rounds of dataset curation, safety post-training, benchmarking, red teaming, and vulnerability identification to cover a variety of harm areas in both single and multi-turn scenarios. Our results indicate that this approach iteratively improved the performance of the Phi-3 models across a wide range of responsible AI benchmarks.",
+    "link": "https://arxiv.org/abs/2407.13833",
+    "published": "Mon, 22 Jul 2024 00:50:18 GMT",
+    "authors": "Emman Haider, Daniel Perez-Becker, Thomas Portet, Piyush Madan, Amit Garg, David Majercak, Wen Wen, Dongwoo Kim, Ziyi Yang, Jianwen Zhang, Hiteshi Sharma, Blake Bullwinkel, Martin Pouliot, Amanda Minnich, Shiven Chawla, Solianna Herrera, Shahed Warreth, Maggie Engler, Gary Lopez, Nina Chikanov, Raja Sekhar Rao Dheekonda, Bolor-Erdene Jagdagdorj, Roman Lutz, Richard Lundeen, Tori Westerhoff, Pete Bryan, Christian Seifert, Ram Shankar Siva Kumar, Andrew Berkley, Alex Kessler",
+    "github_urls": [],
+    "huggingface_urls": [],
+    "source": "Hugging Face"
+  },
+  {
+    "title": "Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders",
+    "summary": "Sparse autoencoders (SAEs) are a promising unsupervised approach for identifying causally relevant and interpretable linear features in a language model's (LM) activations. To be useful for downstream tasks, SAEs need to decompose LM activations faithfully; yet to be interpretable the decomposition must be sparse -- two objectives that are in tension. In this paper, we introduce JumpReLU SAEs, which achieve state-of-the-art reconstruction fidelity at a given sparsity level on Gemma 2 9B activations, compared to other recent advances such as Gated and TopK SAEs. We also show that this improvement does not come at the cost of interpretability through manual and automated interpretability studies. JumpReLU SAEs are a simple modification of vanilla (ReLU) SAEs -- where we replace the ReLU with a discontinuous JumpReLU activation function -- and are similarly efficient to train and run. By utilising straight-through-estimators (STEs) in a principled manner, we show how it is possible to train JumpReLU SAEs effectively despite the discontinuous JumpReLU function introduced in the SAE's forward pass. Similarly, we use STEs to directly train L0 to be sparse, instead of training on proxies such as L1, avoiding problems like shrinkage.",
+    "link": "https://arxiv.org/abs/2407.14435",
+    "published": "Mon, 22 Jul 2024 00:44:33 GMT",
+    "authors": "Senthooran Rajamanoharan, Tom Lieberum, Nicolas Sonnerat, Arthur Conmy, Vikrant Varma, János Kramár, Neel Nanda",
+    "github_urls": [],
+    "huggingface_urls": [],
+    "source": "Hugging Face"
+  },
+  {
+    "title": "The Vision of Autonomic Computing: Can LLMs Make It a Reality?",
+    "summary": "The Vision of Autonomic Computing (ACV), proposed over two decades ago, envisions computing systems that self-manage akin to biological organisms, adapting seamlessly to changing environments. Despite decades of research, achieving ACV remains challenging due to the dynamic and complex nature of modern computing systems. Recent advancements in Large Language Models (LLMs) offer promising solutions to these challenges by leveraging their extensive knowledge, language understanding, and task automation capabilities. This paper explores the feasibility of realizing ACV through an LLM-based multi-agent framework for microservice management. We introduce a five-level taxonomy for autonomous service maintenance and present an online evaluation benchmark based on the Sock Shop microservice demo project to assess our framework's performance. Our findings demonstrate significant progress towards achieving Level 3 autonomy, highlighting the effectiveness of LLMs in detecting and resolving issues within microservice architectures. This study contributes to advancing autonomic computing by pioneering the integration of LLMs into microservice management frameworks, paving the way for more adaptive and self-managing computing systems. The code will be made available at https://aka.ms/ACV-LLM.",
+    "link": "https://arxiv.org/abs/2407.14402",
+    "published": "Mon, 22 Jul 2024 00:41:01 GMT",
+    "authors": "Zhiyang Zhang, Fangkai Yang, Xiaoting Qin, Jue Zhang, Qingwei Lin, Gong Cheng, Dongmei Zhang, Saravan Rajmohan, Qi Zhang",
+    "github_urls": [],
+    "huggingface_urls": [],
+    "source": "Hugging Face"
+  },
+  {
+    "title": "Stable Audio Open",
+    "summary": "Open generative models are vitally important for the community, allowing for fine-tunes and serving as baselines when presenting new models. However, most current text-to-audio models are private and not accessible for artists and researchers to build upon. Here we describe the architecture and training process of a new open-weights text-to-audio model trained with Creative Commons data. Our evaluation shows that the model's performance is competitive with the state-of-the-art across various metrics. Notably, the reported FDopenl3 results (measuring the realism of the generations) showcase its potential for high-quality stereo sound synthesis at 44.1kHz.",
+    "link": "https://arxiv.org/abs/2407.14358",
+    "published": "Mon, 22 Jul 2024 00:37:08 GMT",
+    "authors": "Zach Evans, Julian D. Parker, CJ Carr, Zack Zukowski, Josiah Taylor, Jordi Pons",
+    "github_urls": [],
+    "huggingface_urls": [],
+    "source": "Hugging Face"
+  },
+  {
+    "title": "Efficient Audio Captioning with Encoder-Level Knowledge Distillation",
+    "summary": "Significant improvement has been achieved in automated audio captioning (AAC) with recent models. However, these models have become increasingly large as their performance is enhanced. In this work, we propose a knowledge distillation (KD) framework for AAC. Our analysis shows that in the encoder-decoder based AAC models, it is more effective to distill knowledge into the encoder as compared with the decoder. To this end, we incorporate encoder-level KD loss into training, in addition to the standard supervised loss and sequence-level KD loss. We investigate two encoder-level KD methods, based on mean squared error (MSE) loss and contrastive loss, respectively. Experimental results demonstrate that contrastive KD is more robust than MSE KD, exhibiting superior performance in data-scarce situations. By leveraging audio-only data into training in the KD framework, our student model achieves competitive performance, with an inference speed that is 19 times fasterAn online demo is available at \\url{https://huggingface.co/spaces/wsntxxn/efficient_audio_captioning}.",
+    "link": "https://arxiv.org/abs/2407.14329",
+    "published": "Mon, 22 Jul 2024 00:32:54 GMT",
+    "authors": "Xuenan Xu, Haohe Liu, Mengyue Wu, Wenwu Wang, Mark D. Plumbley",
+    "github_urls": [],
     "huggingface_urls": [
-      "https://huggingface.co/spaces/per/BenchBench"
+      "https://huggingface.co/spaces/wsntxxn/efficient_audio_captioning}."
     ],
     "source": "Hugging Face"
   },
   {
-    "title": "Understanding Reference Policies in Direct Preference Optimization",
-    "summary": "Direct Preference Optimization (DPO) has become a widely used training method for the instruction fine-tuning of large language models (LLMs). In this work, we explore an under-investigated aspect of DPO - its dependency on the reference model or policy. Such reference policies, typically instantiated as the model to be further fine-tuned, are important since they can impose an upper limit on DPO's effectiveness. Therefore, we address three related research questions in this work. First, we explore the optimal strength of the KL-divergence constraint in DPO, which penalizes deviations from the reference policy, and find that DPO is sensitive to this strength. Next, we examine the necessity of reference policies for instruction fine-tuning by providing both theoretical and empirical comparisons between DPO and related learning objectives, demonstrating DPO's superiority. Additionally, we investigate whether DPO benefits from stronger reference policies, finding that a stronger reference policy can lead to improved performance, but only when it is similar to the model being fine-tuned. Our findings highlight the confounding role of reference policies in DPO and offer insights for best practices, while also identifying open research questions for future studies.",
-    "link": "https://arxiv.org/abs/2407.13709",
-    "published": "Fri, 19 Jul 2024 03:06:01 GMT",
-    "authors": "Yixin Liu, Pengfei Liu, Arman Cohan",
+    "title": "SparseCraft: Few-Shot Neural Reconstruction through Stereopsis Guided Geometric Linearization",
+    "summary": "We present a novel approach for recovering 3D shape and view dependent appearance from a few colored images, enabling efficient 3D reconstruction and novel view synthesis. Our method learns an implicit neural representation in the form of a Signed Distance Function (SDF) and a radiance field. The model is trained progressively through ray marching enabled volumetric rendering, and regularized with learning-free multi-view stereo (MVS) cues. Key to our contribution is a novel implicit neural shape function learning strategy that encourages our SDF field to be as linear as possible near the level-set, hence robustifying the training against noise emanating from the supervision and regularization signals. Without using any pretrained priors, our method, called SparseCraft, achieves state-of-the-art performances both in novel-view synthesis and reconstruction from sparse views in standard benchmarks, while requiring less than 10 minutes for training.",
+    "link": "https://arxiv.org/abs/2407.14257",
+    "published": "Mon, 22 Jul 2024 00:25:34 GMT",
+    "authors": "Mae Younes, Amine Ouasfi, Adnane Boukhayma",
     "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   },
   {
-    "title": "Scaling Granite Code Models to 128K Context",
-    "summary": "This paper introduces long-context Granite code models that support effective context windows of up to 128K tokens. Our solution for scaling context length of Granite 3B/8B code models from 2K/4K to 128K consists of a light-weight continual pretraining by gradually increasing its RoPE base frequency with repository-level file packing and length-upsampled long-context data. Additionally, we also release instruction-tuned models with long-context support which are derived by further finetuning the long context base models on a mix of permissively licensed short and long-context instruction-response pairs. While comparing to the original short-context Granite code models, our long-context models achieve significant improvements on long-context tasks without any noticeable performance degradation on regular code completion benchmarks (e.g., HumanEval). We release all our long-context Granite code models under an Apache 2.0 license for both research and commercial use.",
-    "link": "https://arxiv.org/abs/2407.13739",
-    "published": "Fri, 19 Jul 2024 03:04:47 GMT",
-    "authors": "Matt Stallone, Vaibhav Saxena, Leonid Karlinsky, Bridget McGinn, Tim Bula, Mayank Mishra, Adriana Meza Soria, Gaoyuan Zhang, Aditya Prasad, Yikang Shen, Saptha Surendran, Shanmukha Guttula, Hima Patel, Parameswaran Selvam, Xuan-Hong Dang, Yan Koyfman, Atin Sood, Rogerio Feris, Nirmit Desai, David D. Cox, Ruchir Puri, Rameswar Panda",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "Shape of Motion: 4D Reconstruction from a Single Video",
-    "summary": "Monocular dynamic reconstruction is a challenging and long-standing vision problem due to the highly ill-posed nature of the task. Existing approaches are limited in that they either depend on templates, are effective only in quasi-static scenes, or fail to model 3D motion explicitly. In this work, we introduce a method capable of reconstructing generic dynamic scenes, featuring explicit, full-sequence-long 3D motion, from casually captured monocular videos. We tackle the under-constrained nature of the problem with two key insights: First, we exploit the low-dimensional structure of 3D motion by representing scene motion with a compact set of SE3 motion bases. Each point's motion is expressed as a linear combination of these bases, facilitating soft decomposition of the scene into multiple rigidly-moving groups. Second, we utilize a comprehensive set of data-driven priors, including monocular depth maps and long-range 2D tracks, and devise a method to effectively consolidate these noisy supervisory signals, resulting in a globally consistent representation of the dynamic scene. Experiments show that our method achieves state-of-the-art performance for both long-range 3D/2D motion estimation and novel view synthesis on dynamic scenes. Project Page: https://shape-of-motion.github.io/",
-    "link": "https://arxiv.org/abs/2407.13764",
-    "published": "Fri, 19 Jul 2024 03:00:10 GMT",
-    "authors": "Qianqian Wang, Vickie Ye, Hang Gao, Jake Austin, Zhengqi Li, Angjoo Kanazawa",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "Scaling Retrieval-Based Language Models with a Trillion-Token Datastore",
-    "summary": "Scaling laws with respect to the amount of training data and the number of parameters allow us to predict the cost-benefit trade-offs of pretraining language models (LMs) in different configurations. In this paper, we consider another dimension of scaling: the amount of data available at inference time. Specifically, we find that increasing the size of the datastore used by a retrieval-based LM monotonically improves language modeling and several downstream tasks without obvious saturation, such that a smaller model augmented with a large datastore outperforms a larger LM-only model on knowledge-intensive tasks. By plotting compute-optimal scaling curves with varied datastore, model, and pretraining data sizes, we show that using larger datastores can significantly improve model performance for the same training compute budget. We carry out our study by constructing a 1.4 trillion-token datastore named MassiveDS, which is the largest and the most diverse open-sourced datastore for retrieval-based LMs to date, and designing an efficient pipeline for studying datastore scaling in a computationally accessible manner. Finally, we analyze the effect of improving the retriever, datastore quality filtering, and other design choices on our observed scaling trends. Overall, our results show that datastore size should be considered as an integral part of LM efficiency and performance trade-offs. To facilitate future research, we open-source our datastore and code at https://github.com/RulinShao/retrieval-scaling.",
-    "link": "https://arxiv.org/abs/2407.12854",
-    "published": "Fri, 19 Jul 2024 02:44:09 GMT",
-    "authors": "Rulin Shao, Jacqueline He, Akari Asai, Weijia Shi, Tim Dettmers, Sewon Min, Luke Zettlemoyer, Pang Wei Koh",
+    "title": "PlacidDreamer: Advancing Harmony in Text-to-3D Generation",
+    "summary": "Recently, text-to-3D generation has attracted significant attention, resulting in notable performance enhancements. Previous methods utilize end-to-end 3D generation models to initialize 3D Gaussians, multi-view diffusion models to enforce multi-view consistency, and text-to-image diffusion models to refine details with score distillation algorithms. However, these methods exhibit two limitations. Firstly, they encounter conflicts in generation directions since different models aim to produce diverse 3D assets. Secondly, the issue of over-saturation in score distillation has not been thoroughly investigated and solved. To address these limitations, we propose PlacidDreamer, a text-to-3D framework that harmonizes initialization, multi-view generation, and text-conditioned generation with a single multi-view diffusion model, while simultaneously employing a novel score distillation algorithm to achieve balanced saturation. To unify the generation direction, we introduce the Latent-Plane module, a training-friendly plug-in extension that enables multi-view diffusion models to provide fast geometry reconstruction for initialization and enhanced multi-view images to personalize the text-to-image diffusion model. To address the over-saturation problem, we propose to view score distillation as a multi-objective optimization problem and introduce the Balanced Score Distillation algorithm, which offers a Pareto Optimal solution that achieves both rich details and balanced saturation. Extensive experiments validate the outstanding capabilities of our PlacidDreamer. The code is available at https://github.com/HansenHuang0823/PlacidDreamer.",
+    "link": "https://arxiv.org/abs/2407.13976",
+    "published": "Mon, 22 Jul 2024 00:16:14 GMT",
+    "authors": "Shuo Huang, Shikun Sun, Zixuan Wang, Xiaoyu Qin, Yanmin Xiong, Yuan Zhang, Pengfei Wan, Di Zhang, Jia Jia",
     "github_urls": [
-      "https://github.com/RulinShao/retrieval-scaling."
+      "https://github.com/HansenHuang0823/PlacidDreamer."
     ],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "Streetscapes: Large-scale Consistent Street View Generation Using Autoregressive Video Diffusion",
-    "summary": "We present a method for generating Streetscapes-long sequences of views through an on-the-fly synthesized city-scale scene. Our generation is conditioned by language input (e.g., city name, weather), as well as an underlying map/layout hosting the desired trajectory. Compared to recent models for video generation or 3D view synthesis, our method can scale to much longer-range camera trajectories, spanning several city blocks, while maintaining visual quality and consistency. To achieve this goal, we build on recent work on video diffusion, used within an autoregressive framework that can easily scale to long sequences. In particular, we introduce a new temporal imputation method that prevents our autoregressive approach from drifting from the distribution of realistic city imagery. We train our Streetscapes system on a compelling source of data-posed imagery from Google Street View, along with contextual map data-which allows users to generate city views conditioned on any desired city layout, with controllable camera poses. Please see more results at our project page at https://boyangdeng.com/streetscapes.",
-    "link": "https://arxiv.org/abs/2407.13759",
-    "published": "Fri, 19 Jul 2024 02:22:36 GMT",
-    "authors": "Boyang Deng, Richard Tucker, Zhengqi Li, Leonidas Guibas, Noah Snavely, Gordon Wetzstein",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "Scaling Laws with Vocabulary: Larger Models Deserve Larger Vocabularies",
-    "summary": "Research on scaling large language models (LLMs) has primarily focused on model parameters and training data size, overlooking the role of vocabulary size. % Intuitively, larger vocabularies enable more efficient tokenization by representing sentences with fewer tokens, but they also increase the risk of under-fitting representations for rare tokens. We investigate how vocabulary size impacts LLM scaling laws by training models ranging from 33M to 3B parameters on up to 500B characters with various vocabulary configurations. We propose three complementary approaches for predicting the compute-optimal vocabulary size: IsoFLOPs analysis, derivative estimation, and parametric fit of the loss function. Our approaches converge on the same result that the optimal vocabulary size depends on the available compute budget and that larger models deserve larger vocabularies. However, most LLMs use too small vocabulary sizes. For example, we predict that the optimal vocabulary size of Llama2-70B should have been at least 216K, 7 times larger than its vocabulary of 32K. We validate our predictions empirically by training models with 3B parameters across different FLOPs budgets. Adopting our predicted optimal vocabulary size consistently improves downstream performance over commonly used vocabulary sizes. By increasing the vocabulary size from the conventional 32K to 43K, we improve performance on ARC-Challenge from 29.1 to 32.0 with the same 2.3e21 FLOPs. Our work emphasizes the necessity of jointly considering model parameters and vocabulary size for efficient scaling.",
-    "link": "https://arxiv.org/abs/2407.13623",
-    "published": "Fri, 19 Jul 2024 01:08:51 GMT",
-    "authors": "Chaofan Tao, Qian Liu, Longxu Dou, Niklas Muennighoff, Zhongwei Wan, Ping Luo, Min Lin, Ngai Wong",
-    "github_urls": [],
-    "huggingface_urls": [],
-    "source": "Hugging Face"
-  },
-  {
-    "title": "CodeV: Empowering LLMs for Verilog Generation through Multi-Level Summarization",
-    "summary": "The increasing complexity and high costs associated with modern processor design have led to a surge in demand for processor design automation. Instruction-tuned large language models (LLMs) have demonstrated remarkable performance in automatically generating code for general-purpose programming languages like Python. However, these methods fail on hardware description languages (HDLs) like Verilog due to the scarcity of high-quality instruction tuning data, as even advanced LLMs like GPT-3.5 exhibit limited performance on Verilog generation. Regarding this issue, we observe that (1) Verilog code collected from the real world has higher quality than those generated by LLMs. (2) LLMs like GPT-3.5 excel in summarizing Verilog code rather than generating it. Based on these observations, this paper introduces CodeV, a series of open-source instruction-tuned Verilog generation LLMs. Instead of generating descriptions first and then getting the corresponding code from advanced LLMs, we prompt the LLM with Verilog code and let the LLM generate the corresponding natural language description by multi-level summarization. Experimental results show that CodeV relatively surpasses the previous open-source SOTA by 14.4% (BetterV in VerilogEval) and 11.3% (RTLCoder in RTLLM) respectively, and also relatively outperforms previous commercial SOTA GPT-4 by 22.1% in VerilogEval.",
-    "link": "https://arxiv.org/abs/2407.10424",
-    "published": "Fri, 19 Jul 2024 00:38:17 GMT",
-    "authors": "Yang Zhao, Di Huang, Chongxiao Li, Pengwei Jin, Ziyuan Nan, Tianyun Ma, Lei Qi, Yansong Pan, Zhenxing Zhang, Rui Zhang, Xishan Zhang, Zidong Du, Qi Guo, Xing Hu, Yunji Chen",
-    "github_urls": [],
     "huggingface_urls": [],
     "source": "Hugging Face"
   }

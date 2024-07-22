@@ -7,3 +7,4 @@ PyGithub
 pydantic_settings
 tqdm
 google-generativeai
+tenacity

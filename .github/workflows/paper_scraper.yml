@@ -30,24 +30,23 @@ jobs:
       - name: 論文スクレイパーの実行
         run: python .github/scripts/scraper.py
 
-      - name: 新しいブランチの作成
+      - name: 変更の確認
+        id: check_changes
         run: |
-          git checkout -b update-papers-data
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
 
-      - name: 変更のコミット
+      - name: 変更があれば新しいブランチを作成してコミット
+        if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config --local user.email "yukihiko.fuyuki@gmail.com"
           git config --local user.name "yukihiko-fuyuki"
+          git checkout -b update-papers-data
           git add papers.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "📚 [paper] スクレイピングした論文データを更新"
-
-      - name: 変更のプッシュ
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
-          branch: update-papers-data
+          git commit -m "📚 [paper] スクレイピングした論文データを更新"
+          git push -u origin update-papers-data
 
       - name: プルリクエストの作成
+        if: steps.check_changes.outputs.changes == 'true'
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
@@ -58,6 +57,7 @@ jobs:
           base: main
 
       - name: プルリクエストの自動マージ
+        if: steps.check_changes.outputs.changes == 'true'
         uses: pascalgn/automerge-action@v0.14.3
         env:
           GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}

@@ -10,8 +10,8 @@ permissions:
   contents: write
 
 jobs:
-  scrape-and-update:  # ジョブ名を英語に変更
-    name: スクレイプと更新  # 表示名として日本語を使用
+  scrape-and-update:
+    name: スクレイプと更新
     runs-on: ubuntu-latest
     steps:
       - name: リポジトリのチェックアウト
@@ -30,22 +30,38 @@ jobs:
       - name: 論文スクレイパーの実行
         run: python .github/scripts/scraper.py
 
-      - name: 変更があればコミットとプッシュ
-        env:
-          GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
+      - name: 新しいブランチの作成
+        run: |
+          git checkout -b update-papers-data
+
+      - name: 変更のコミット
         run: |
           git config --local user.email "yukihiko.fuyuki@gmail.com"
           git config --local user.name "yukihiko-fuyuki"
           git add papers.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "📚 [paper] スクレイピングした論文データを更新" && git push)
+          git diff --quiet && git diff --staged --quiet || git commit -m "📚 [paper] スクレイピングした論文データを更新"
 
       - name: 変更のプッシュ
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
-          branch: ${{ github.ref }}
+          branch: update-papers-data
 
-# ---------------
-# debug code
-#
-# act workflow_dispatch -W .github/workflows/paper_scraper.yml --env-file .env --secret-file .env -v
+      - name: プルリクエストの作成
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
+          commit-message: 📚 [paper] スクレイピングした論文データを更新
+          title: '論文データの更新'
+          body: 'このプルリクエストは自動的に作成されました。スクレイピングされた最新の論文データが含まれています。'
+          branch: update-papers-data
+          base: main
+
+      - name: プルリクエストの自動マージ
+        uses: pascalgn/automerge-action@v0.14.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
+          MERGE_LABELS: ""
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "🔀 論文データを更新 (自動マージ)"
+          MERGE_DELETE_BRANCH: "true"

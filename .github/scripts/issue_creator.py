@@ -85,7 +85,7 @@ class IssueCreator:
         logger.success(f"{len(papers)}件の論文データを読み込みました")
 
         debug_start = 0
-        n = 1
+        n = 5
         for i, paper in enumerate(papers[debug_start:debug_start+n], 1):
             logger.info(f"論文 {i}/{n} を処理中...")
             self.create_issue(paper)

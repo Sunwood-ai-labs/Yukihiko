@@ -1,5 +1,4 @@
-
-# Project: Yukihiko
+# Project: Yukihiko 🤖
 
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/Yukihiko.png" width="100%">
@@ -37,35 +36,48 @@
 >[!IMPORTANT]
 >このリポジトリのリリースノートやREADME、コミットメッセージの9割近くは[claude.ai](https://claude.ai/)や[ChatGPT4](https://chatgpt.com/)を活用した[AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II)で生成しています。
 
-# Yukihiko: あなただけのAI研究員
+# Yukihiko: あなただけのAI研究員 👨‍🔬
 
 YukihikoはGitHub Actionsで動作する、サーバーレスで全自動のAI研究員です。 
 最新の機械学習論文を収集、日本語に翻訳、要約し、GitHubのIssueとして毎日自動的に報告します。 
 忙しい研究者や開発者のために、最新の研究動向を効率的に把握するお手伝いをします。
 
-## Yukihikoができること
+## Yukihikoができること ✨
 
-* 最新の機械学習論文をarXivとHugging Faceから自動的に収集
-* 論文情報を日本語に翻訳
-* 翻訳された論文の要約を自動生成
-* 翻訳と要約をGitHubのIssueとして投稿
-* Issueに自動的にラベルを付与
+*  📚 最新の機械学習論文をarXivとHugging Faceから自動的に収集
+*  🇯🇵 論文情報を日本語に翻訳
+*  📝 翻訳された論文の要約を自動生成
+*  📨 翻訳と要約をGitHubのIssueとして投稿
+*  🏷️ Issueに自動的にラベルを付与
 
-## Yukihikoの導入方法
+## Yukihikoの導入方法 🚀
 
-1. **リポジトリをクローンします。**
-2. **設定ファイル（.env）を作成し、必要な情報を設定します。**
-   ```
-   GITHUB_TOKEN=あなたのGitHubトークン
-   GITHUB_REPOSITORY=あなたのリポジトリ名（例：Sunwood-ai-labs/Yukihiko）
-   GEMINI_API_KEY=あなたのGemini APIキー
-   YOUR_PERSONAL_ACCESS_TOKEN=あなたのGitHub Personal Access Token
-   YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO=Yukihiko専用のGitHub Personal Access Token
-   ```
-3. **GitHub Actionsを有効化します。**
-4. **しばらくすると、Yukihikoが論文情報を収集し、Issueとして報告します。**
+### 1. リポジトリのクローン 📥
 
-## Yukihikoの動作原理
+```bash
+git clone https://github.com/Sunwood-ai-labs/Yukihiko.git
+```
+
+### 2. GitHub SecretsにAPIキー等を設定 🔐
+
+Yukihikoはいくつかの外部サービスと連携して動作します。これらのサービスを利用するためのAPIキーやトークンをGitHub Secretsに設定する必要があります。
+
+* **GITHUB_TOKEN**: GitHub APIを利用するためのトークン。Yukihikoを実行するリポジトリへのアクセス権が必要です。
+* **GEMINI_API_KEY**: Google Gemini APIを利用するためのAPIキー。
+* **YOUR_PERSONAL_ACCESS_TOKEN**: GitHub APIを利用するための、個人のアクセストークン。Yukihikoを実行するリポジトリへのアクセス権が必要です。
+* **YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO**: Yukihiko専用のGitHub Personal Access Token。Yukihikoを実行するリポジトリへのアクセス権が必要です。
+
+
+### 3. ワークフローを配置 ▶️
+
+ダウンロードしたリポジトリ内のワークフローファイルを `.github/workflows` に配置してください。
+
+### 4. 定期実行を待つ 😊
+
+設定したスケジュールに従ってYukihikoが動作し、論文情報を収集してIssueとして報告します。 
+
+
+## Yukihikoの動作原理 ⚙️
 
 Yukihikoは、以下のフローで論文情報を収集し、整理します。
 
@@ -132,25 +144,24 @@ sequenceDiagram
 5. **日本語の要約作成:**  Google Gemini APIを用いて、翻訳された論文情報を要約します。
 6. **論文のタグ付け:**  論文情報に基づき、GitHub APIを用いてIssueを作成し、適切なラベルを付与します。 
 
+## Yukihikoの利点 👍
 
-## Yukihikoの利点
+* **サーバーレス**: サーバーレスで動作するため、サーバーの管理が不要です。
+* **全自動**: 全自動で動作するため、手間がかかりません。
+* **日本語対応**: 日本語で論文情報が提供されるため、理解しやすいです。
+* **GitHub連携**: GitHubと連携しているため、Issueとして論文情報を管理できます。
 
-* **サーバーレスで動作するため、サーバーの管理が不要です。**
-* **全自動で動作するため、手間がかかりません。**
-* **日本語で論文情報が提供されるため、理解しやすいです。**
-* **GitHubと連携しているため、Issueとして論文情報を管理できます。**
-
-## Yukihikoの今後の展望
+## Yukihikoの今後の展望 👀
 
 * より多くの論文ソースへの対応
 * 翻訳精度の向上
 * 要約精度の向上
 * ユーザーインターフェースの提供
 
-## 免責事項
+## 免責事項 🙏
 
 このリポジトリは学術的な目的で作成されています。 翻訳と要約の精度は、使用される機械学習モデルによって異なる場合があります。 情報の正確性については、必ず元の論文を参照してください。
 
-## ライセンス
+## ライセンス 📄
 
 MIT License

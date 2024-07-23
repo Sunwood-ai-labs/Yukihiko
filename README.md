@@ -1,9 +1,11 @@
+# Project: Yukihiko 🤖
+
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/Yukihiko.png" width="100%">
 <br>
 <h1 align="center">Yukihiko</h1>
 <h2 align="center">
-  ～ Fusion of Python and GIMP ～
+  ～ AI-powered research discovery ～
 <br>
   <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/Yukihiko">
 <img alt="PyPI - Format" src="https://img.shields.io/pypi/format/Yukihiko">
@@ -21,10 +23,10 @@
 <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Sunwood-ai-labs/Yukihiko/publish-to-pypi.yml">
 <br>
 <p align="center">
-  <a href="https://hamaruki.com/"><b>[🌐 Website]</b></a> •
-  <a href="https://github.com/Sunwood-ai-labs"><b>[🐱 GitHub]</b></a>
-  <a href="https://x.com/hAru_mAki_ch"><b>[🐦 Twitter]</b></a> •
-  <a href="https://hamaruki.com/"><b>[🍀 Official Blog]</b></a>
+  <a href="https://hamaruki.com/"><b>[ Website]</b></a> •
+  <a href="https://github.com/Sunwood-ai-labs"><b>[ GitHub]</b></a>
+  <a href="https://x.com/hAru_mAki_ch"><b>[ Twitter]</b></a> •
+  <a href="https://hamaruki.com/"><b>[ Official Blog]</b></a>
 </p>
 
 </h2>
@@ -34,46 +36,145 @@
 >[!IMPORTANT]
 >このリポジトリのリリースノートやREADME、コミットメッセージの9割近くは[claude.ai](https://claude.ai/)や[ChatGPT4](https://chatgpt.com/)を活用した[AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II)で生成しています。
 
-# Yukihiko
+# Yukihiko: あなただけのAI研究員 👨‍🔬
 
-## 🌟 はじめに
+YukihikoはGitHub Actionsで動作する、サーバーレスで全自動のAI研究員です。 
+最新の機械学習論文を収集、日本語に翻訳、要約し、GitHubのIssueとして毎日自動的に報告します。 
+忙しい研究者や開発者のために、最新の研究動向を効率的に把握するお手伝いをします。
 
-このリポジトリは、最新の研究論文を簡単にキャッチアップできるように設計されています。毎日自動的に論文を収集し、機械翻訳と要約を用いて、その内容を素早く把握できるようにします。
+## Yukihikoができること ✨
 
-## 🚀  機能
+*  📚 最新の機械学習論文をarXivとHugging Faceから自動的に収集
+*  🇯🇵 論文情報を日本語に翻訳
+*  📝 翻訳された論文の要約を自動生成
+*  📨 翻訳と要約をGitHubのIssueとして投稿
+*  🏷️ Issueに自動的にラベルを付与
 
-* 定期刊行物のWebサイトから論文をスクレイピング
-* スクレイピングした論文を機械翻訳 (日本語など)
-* 翻訳された論文の要約を自動生成
-* 翻訳と要約をGitHubのIssueとして投稿
+## Yukihikoの機能実装状況 🚀
 
-## 🎥 デモ
+### 現在実装済みの機能:
+- [x] 定期実行機能
+- [x] 論文スクレイピング (arXiv, Hugging Face)
+- [x] 日本語翻訳
+- [x] 要約生成
 
-※ デモ動画やスクリーンショットがある場合はここに挿入してください。
+### 今後実装予定の機能:
+- [ ] スライド生成
+- [ ] 記事作成
+- [ ] 実行環境スクリプトの作成
 
-## 🚀  導入方法
+## Yukihikoの導入方法 🚀
 
-1. リポジトリをクローンします。
-2. 設定ファイルで、スクレイピングするWebサイト、翻訳先の言語、その他のオプションを設定します。
-3. スケジュールされたタスクを設定し、スクリプトを毎日自動的に実行します。
+### 1. リポジトリのクローン 📥
 
-## 📝 更新情報
+```bash
+git clone https://github.com/Sunwood-ai-labs/Yukihiko.git
+```
 
-※ リリースノートや更新履歴などを記載してください。
+### 2. GitHub SecretsにAPIキー等を設定 🔐
 
-## 🤝  貢献
+Yukihikoはいくつかの外部サービスと連携して動作します。これらのサービスを利用するためのAPIキーやトークンをGitHub Secretsに設定する必要があります。
 
-このプロジェクトはオープンソースであり、コントリビューションを歓迎します。 機能のリクエスト、バグレポート、プルリクエストを提出してください。
+* **GITHUB_TOKEN**: GitHub APIを利用するためのトークン。Yukihikoを実行するリポジトリへのアクセス権が必要です。
+* **GEMINI_API_KEY**: Google Gemini APIを利用するためのAPIキー。
+* **YOUR_PERSONAL_ACCESS_TOKEN**: GitHub APIを利用するための、個人のアクセストークン。Yukihikoを実行するリポジトリへのアクセス権が必要です。
+* **YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO**: Yukihiko専用のGitHub Personal Access Token。Yukihikoを実行するリポジトリへのアクセス権が必要です。
 
-## 📄 ライセンス
 
-※ ライセンスの種類を明記してください。（例：MITライセンス）
+### 3. ワークフローを配置 ▶️
 
-## 🙏  謝辞
+ダウンロードしたリポジトリ内のワークフローファイルを `.github/workflows` に配置してください。
 
-このリポジトリは、多くのオープンソースプロジェクトやライブラリを使用しています。 開発者や貢献者に感謝いたします。
+### 4. 定期実行を待つ 😊
 
-## 免責事項
+設定したスケジュールに従ってYukihikoが動作し、論文情報を収集してIssueとして報告します。 
 
-このリポジトリは学術的な目的で作成されています。 翻訳と要約の精度は、使用される機械学習モデルによって異なる場合があります。 情報の正確性については、必ず元の論文を参照してください。 
 
+## Yukihikoの動作原理 ⚙️
+
+Yukihikoは、以下のフローで論文情報を収集し、整理します。
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#024959',
+    'primaryTextColor': '#F2C12E',
+    'primaryBorderColor': '#024959',
+    'lineColor': '#A1A2A6',
+    'secondaryColor': '#F2AE30',
+    'tertiaryColor': '#593E25',
+    'textColor': '#A1A2A6',
+    'fontSize': '20px'
+  }
+} }%%
+sequenceDiagram
+    participant GitHub Actions
+    participant Yukihiko
+    participant arXiv
+    participant Hugging Face
+    participant Google Gemini API
+    participant GitHub API
+
+    GitHub Actions->>Yukihiko: スケジュール実行開始
+    activate Yukihiko
+    Yukihiko->>arXiv: 最新の論文情報を取得
+    activate arXiv
+    arXiv-->>Yukihiko: 論文情報
+    deactivate arXiv
+    Yukihiko->>Hugging Face: 最新の論文情報を取得
+    activate Hugging Face
+    Hugging Face-->>Yukihiko: 論文情報
+    deactivate Hugging Face
+    Yukihiko->>GitHub API: 収集した論文情報でプルリクエストを作成
+    activate GitHub API
+    GitHub API-->>Yukihiko: プルリクエスト作成完了
+    GitHub Actions->>GitHub API: プルリクエストをマージ
+    GitHub API-->>GitHub Actions: マージ完了
+    deactivate GitHub API
+    Yukihiko->>Google Gemini API: 論文情報を日本語に翻訳
+    activate Google Gemini API
+    Google Gemini API-->>Yukihiko: 翻訳済み論文情報
+    deactivate Google Gemini API
+    Yukihiko->>Google Gemini API: 翻訳済み論文情報を要約
+    activate Google Gemini API
+    Google Gemini API-->>Yukihiko: 要約済み論文情報
+    deactivate Google Gemini API
+    Yukihiko->>GitHub API:  論文情報からIssueを作成 & ラベルを付与
+    activate GitHub API
+    GitHub API-->>Yukihiko: Issue作成完了
+    deactivate GitHub API
+    Yukihiko-->>GitHub Actions: 処理完了
+    deactivate Yukihiko
+
+    Note left of GitHub Actions: スケジュール実行
+```
+
+1. **スケジュール実行:** GitHub Actionsのスケジュール機能に基づき、Yukihikoが起動します。
+2. **論文スクレイピング:** arXivとHugging Faceから最新の論文情報を取得します。
+3. **収集情報をプルリクエストしてマージ:** 取得した論文情報はプルリクエストとしてメインブランチにマージされます。
+4. **日本語に翻訳:** Google Gemini APIを用いて、論文情報を日本語に翻訳します。
+5. **日本語の要約作成:**  Google Gemini APIを用いて、翻訳された論文情報を要約します。
+6. **論文のタグ付け:**  論文情報に基づき、GitHub APIを用いてIssueを作成し、適切なラベルを付与します。 
+
+## Yukihikoの利点 👍
+
+* **サーバーレス**: サーバーレスで動作するため、サーバーの管理が不要です。
+* **全自動**: 全自動で動作するため、手間がかかりません。
+* **日本語対応**: 日本語で論文情報が提供されるため、理解しやすいです。
+* **GitHub連携**: GitHubと連携しているため、Issueとして論文情報を管理できます。
+
+## Yukihikoの今後の展望 👀
+
+* より多くの論文ソースへの対応
+* 翻訳精度の向上
+* 要約精度の向上
+* ユーザーインターフェースの提供
+
+## 免責事項 🙏
+
+このリポジトリは学術的な目的で作成されています。 翻訳と要約の精度は、使用される機械学習モデルによって異なる場合があります。 情報の正確性については、必ず元の論文を参照してください。
+
+## ライセンス 📄
+
+MIT License

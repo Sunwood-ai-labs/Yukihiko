@@ -1,9 +1,9 @@
-<p align="center">
+## <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/Yukihiko.png" width="100%">
 <br>
 <h1 align="center">Yukihiko</h1>
 <h2 align="center">
-  ～ Fusion of Python and GIMP ～
+  ～ AI-powered research discovery ～
 <br>
   <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/Yukihiko">
 <img alt="PyPI - Format" src="https://img.shields.io/pypi/format/Yukihiko">
@@ -21,10 +21,10 @@
 <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Sunwood-ai-labs/Yukihiko/publish-to-pypi.yml">
 <br>
 <p align="center">
-  <a href="https://hamaruki.com/"><b>[🌐 Website]</b></a> •
-  <a href="https://github.com/Sunwood-ai-labs"><b>[🐱 GitHub]</b></a>
-  <a href="https://x.com/hAru_mAki_ch"><b>[🐦 Twitter]</b></a> •
-  <a href="https://hamaruki.com/"><b>[🍀 Official Blog]</b></a>
+  <a href="https://hamaruki.com/"><b>[ Website]</b></a> •
+  <a href="https://github.com/Sunwood-ai-labs"><b>[ GitHub]</b></a>
+  <a href="https://x.com/hAru_mAki_ch"><b>[ Twitter]</b></a> •
+  <a href="https://hamaruki.com/"><b>[ Official Blog]</b></a>
 </p>
 
 </h2>
@@ -36,44 +36,60 @@
 
 # Yukihiko
 
-## 🌟 はじめに
+## はじめに
 
-このリポジトリは、最新の研究論文を簡単にキャッチアップできるように設計されています。毎日自動的に論文を収集し、機械翻訳と要約を用いて、その内容を素早く把握できるようにします。
+Yukihikoは、最新の機械学習論文を簡単にキャッチアップできるように設計されたツールです。 毎日自動的に論文を収集し、日本語に翻訳、要約を作成してGitHubのIssueとして投稿します。 忙しい研究者や開発者の方々に、最新の研究動向を効率的に把握するお手伝いをします。
 
-## 🚀  機能
+## 機能
 
 * 定期刊行物のWebサイトから論文をスクレイピング
-* スクレイピングした論文を機械翻訳 (日本語など)
+*  スクレイピングした論文を日本語に翻訳
 * 翻訳された論文の要約を自動生成
 * 翻訳と要約をGitHubのIssueとして投稿
+* Issueに自動的にラベルを付与
 
-## 🎥 デモ
-
-※ デモ動画やスクリーンショットがある場合はここに挿入してください。
-
-## 🚀  導入方法
+## 導入方法
 
 1. リポジトリをクローンします。
 2. 設定ファイルで、スクレイピングするWebサイト、翻訳先の言語、その他のオプションを設定します。
 3. スケジュールされたタスクを設定し、スクリプトを毎日自動的に実行します。
 
-## 📝 更新情報
+## 更新情報
 
-※ リリースノートや更新履歴などを記載してください。
+### v0.1.0 (2024-07-23)
 
-## 🤝  貢献
+- **新機能:**
+    - arXivとHugging Faceから論文情報を自動取得
+    - 論文情報を日本語に自動翻訳
+    - 翻訳された論文の要約を自動生成
+    - 翻訳と要約をGitHubのIssueとして投稿
+    - Issueに自動的にラベルを付与
+- **改善:**
+    - 論文スクレイパーの実行時間の変更
+    - ワークフローの効率性と安全性の向上
+    - 不要なブランチ作成とプッシュの回避
+    - GitHub Actionsワークフローの改善
+    - スクリプトのデバッグ開始位置修正
+- **バグ修正:**
+    - GitHub Actionsの権限エラーを修正
+    - IssueCreator スクリプトのデバッグ開始位置を修正
+-   **ドキュメント:**
+    - SourceSageの使い方を記述したusage.mdを追加
+    - リリースノート生成のための設定ファイルを追加
+
+## 貢献
 
 このプロジェクトはオープンソースであり、コントリビューションを歓迎します。 機能のリクエスト、バグレポート、プルリクエストを提出してください。
 
-## 📄 ライセンス
+## ライセンス
 
-※ ライセンスの種類を明記してください。（例：MITライセンス）
+MIT License
 
-## 🙏  謝辞
+## 謝辞
 
 このリポジトリは、多くのオープンソースプロジェクトやライブラリを使用しています。 開発者や貢献者に感謝いたします。
 
 ## 免責事項
 
-このリポジトリは学術的な目的で作成されています。 翻訳と要約の精度は、使用される機械学習モデルによって異なる場合があります。 情報の正確性については、必ず元の論文を参照してください。 
-
+このリポジトリは学術的な目的で作成されています。 翻訳と要約の精度は、使用される機械学習モデルによって異なる場合があります。 情報の正確性については、必ず元の論文を参照してください。
+```

@@ -38,17 +38,17 @@
 
 # Yukihiko: あなただけのAI研究員 👨‍🔬
 
+
 YukihikoはGitHub Actionsで動作する、サーバーレスで全自動のAI研究員です。 
-最新の機械学習論文を収集、日本語に翻訳、要約し、GitHubのIssueとして毎日自動的に報告します。 
+最新の機械学習論文を収集し、GitHubのIssueとして報告します。 
 忙しい研究者や開発者のために、最新の研究動向を効率的に把握するお手伝いをします。
 
-## Yukihikoができること ✨
+## Yukihikoの特徴 ✨
 
-*  📚 最新の機械学習論文をarXivとHugging Faceから自動的に収集
-*  🇯🇵 論文情報を日本語に翻訳
-*  📝 翻訳された論文の要約を自動生成
-*  📨 翻訳と要約をGitHubのIssueとして投稿
-*  🏷️ Issueに自動的にラベルを付与
+* **自動論文収集**: arXivとHugging Faceから最新の機械学習論文を自動的に収集します。
+* **日本語要約**:  Google Gemini APIを用いて、論文情報を日本語に翻訳、要約します。
+* **Issueベースの情報共有**:  論文情報はGitHubのIssueとして投稿されるため、誰でも簡単にアクセスし、議論に参加できます。
+* **AI研究員「雪彦」との対話**:  Issueにコメントすると、AI研究員「雪彦」が、これまでのコメントの流れを踏まえて、LLMを用いて返信します。
 
 ## Yukihikoの機能実装状況 🚀
 
@@ -57,6 +57,7 @@ YukihikoはGitHub Actionsで動作する、サーバーレスで全自動のAI�
 - [x] 論文スクレイピング (arXiv, Hugging Face)
 - [x] 日本語翻訳
 - [x] 要約生成
+- [x] Issueへのコメント応答 (AI研究員「雪彦」)
 
 ### 今後実装予定の機能:
 - [ ] スライド生成
@@ -80,7 +81,6 @@ Yukihikoはいくつかの外部サービスと連携して動作します。こ
 * **YOUR_PERSONAL_ACCESS_TOKEN**: GitHub APIを利用するための、個人のアクセストークン。Yukihikoを実行するリポジトリへのアクセス権が必要です。
 * **YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO**: Yukihiko専用のGitHub Personal Access Token。Yukihikoを実行するリポジトリへのアクセス権が必要です。
 
-
 ### 3. ワークフローを配置 ▶️
 
 ダウンロードしたリポジトリ内のワークフローファイルを `.github/workflows` に配置してください。
@@ -89,12 +89,12 @@ Yukihikoはいくつかの外部サービスと連携して動作します。こ
 
 設定したスケジュールに従ってYukihikoが動作し、論文情報を収集してIssueとして報告します。 
 
-
 ## Yukihikoの動作原理 ⚙️
 
 Yukihikoは、以下のフローで論文情報を収集し、整理します。
 
 ```mermaid
+
 %%{init: {
   'theme': 'base',
   'themeVariables': {
@@ -110,52 +110,75 @@ Yukihikoは、以下のフローで論文情報を収集し、整理します。
 } }%%
 sequenceDiagram
     participant GitHub Actions
-    participant Yukihiko
-    participant arXiv
-    participant Hugging Face
-    participant Google Gemini API
-    participant GitHub API
+    participant Yukihiko 🤖
+    participant arXiv 📚
+    participant Hugging Face 🤗
+    participant Google Gemini API 🧠
+    participant GitHub API 🐙
+    participant User 🧑‍💻
 
-    GitHub Actions->>Yukihiko: スケジュール実行開始
-    activate Yukihiko
-    Yukihiko->>arXiv: 最新の論文情報を取得
-    activate arXiv
-    arXiv-->>Yukihiko: 論文情報
-    deactivate arXiv
-    Yukihiko->>Hugging Face: 最新の論文情報を取得
-    activate Hugging Face
-    Hugging Face-->>Yukihiko: 論文情報
-    deactivate Hugging Face
-    Yukihiko->>GitHub API: 収集した論文情報でプルリクエストを作成
-    activate GitHub API
-    GitHub API-->>Yukihiko: プルリクエスト作成完了
-    GitHub Actions->>GitHub API: プルリクエストをマージ
-    GitHub API-->>GitHub Actions: マージ完了
-    deactivate GitHub API
-    Yukihiko->>Google Gemini API: 論文情報を日本語に翻訳
-    activate Google Gemini API
-    Google Gemini API-->>Yukihiko: 翻訳済み論文情報
-    deactivate Google Gemini API
-    Yukihiko->>Google Gemini API: 翻訳済み論文情報を要約
-    activate Google Gemini API
-    Google Gemini API-->>Yukihiko: 要約済み論文情報
-    deactivate Google Gemini API
-    Yukihiko->>GitHub API:  論文情報からIssueを作成 & ラベルを付与
-    activate GitHub API
-    GitHub API-->>Yukihiko: Issue作成完了
-    deactivate GitHub API
-    Yukihiko-->>GitHub Actions: 処理完了
-    deactivate Yukihiko
+    alt 論文収集
+    GitHub Actions->>Yukihiko 🤖: スケジュール実行開始 🚀
+    activate Yukihiko 🤖
+    Yukihiko 🤖->>arXiv 📚: 最新の論文情報を取得 🔍
+    activate arXiv 📚
+    arXiv 📚-->>Yukihiko 🤖: 論文情報 📄
+    deactivate arXiv 📚
+    Yukihiko 🤖->>Hugging Face 🤗: 最新の論文情報を取得 🔍
+    activate Hugging Face 🤗
+    Hugging Face 🤗-->>Yukihiko 🤖: 論文情報 📄
+    deactivate Hugging Face 🤗
+    Yukihiko 🤖->>GitHub API 🐙: 収集した論文情報でプルリクエストを作成 📤
+    activate GitHub API 🐙
+    GitHub API 🐙-->>Yukihiko 🤖: プルリクエスト作成完了 👍
+    GitHub Actions->>GitHub API 🐙: プルリクエストをマージ 🔀
+    GitHub API 🐙-->>GitHub Actions: マージ完了 🎉
+    end
 
-    Note left of GitHub Actions: スケジュール実行
+    alt Issue作成 📰
+    deactivate GitHub API 🐙
+    Yukihiko 🤖->>Google Gemini API 🧠: 論文情報を日本語に翻訳 🇯🇵
+    activate Google Gemini API 🧠
+    Google Gemini API 🧠-->>Yukihiko 🤖: 翻訳済み論文情報 📄🇯🇵
+    deactivate Google Gemini API 🧠
+    Yukihiko 🤖->>Google Gemini API 🧠: 翻訳済み論文情報を要約 📝
+    activate Google Gemini API 🧠
+    Google Gemini API 🧠-->>Yukihiko 🤖: 要約済み論文情報 📄🇯🇵
+    deactivate Google Gemini API 🧠
+    Yukihiko 🤖->>GitHub API 🐙:  論文情報からIssueを作成 & ラベルを付与 🏷️
+    activate GitHub API 🐙
+    GitHub API 🐙-->>Yukihiko 🤖: Issue作成完了 👍
+    deactivate GitHub API 🐙
+    deactivate Yukihiko 🤖
+    end
+
+    alt ユーザーとの対話💬
+    User 🧑‍💻->>GitHub API 🐙: Issueにコメントを追加 💬
+    activate GitHub API 🐙
+    GitHub API 🐙->>Yukihiko 🤖: Issueにコメントが追加されたことを通知 🔔
+    activate Yukihiko 🤖
+    Yukihiko 🤖->>Google Gemini API 🧠: Issueのコメント履歴と設定を読み込み、雪彦のペルソナで応答を生成 🎭
+    activate Google Gemini API 🧠
+    Google Gemini API 🧠-->>Yukihiko 🤖: 雪彦のコメント 💬
+    deactivate Google Gemini API 🧠
+    Yukihiko 🤖->>GitHub API 🐙:  雪彦のコメントをIssueに追加 💬
+    deactivate Yukihiko 🤖
+    GitHub API 🐙-->>User 🧑‍💻: 雪彦のコメントを表示 👀
+    deactivate GitHub API 🐙
+    end
+
+    Note left of GitHub Actions: スケジュール実行 ⏰
 ```
 
-1. **スケジュール実行:** GitHub Actionsのスケジュール機能に基づき、Yukihikoが起動します。
-2. **論文スクレイピング:** arXivとHugging Faceから最新の論文情報を取得します。
-3. **収集情報をプルリクエストしてマージ:** 取得した論文情報はプルリクエストとしてメインブランチにマージされます。
-4. **日本語に翻訳:** Google Gemini APIを用いて、論文情報を日本語に翻訳します。
-5. **日本語の要約作成:**  Google Gemini APIを用いて、翻訳された論文情報を要約します。
-6. **論文のタグ付け:**  論文情報に基づき、GitHub APIを用いてIssueを作成し、適切なラベルを付与します。 
+1. **スケジュール実行 ⏰**: GitHub Actionsのスケジュール機能に基づき、Yukihiko🤖が起動します。
+2. **論文スクレイピング 📚**: arXiv📚とHugging Face🤗から最新の機械学習論文情報を取得します。
+3. **収集情報をプルリクエストしてマージ 🔀**: 取得した論文情報はプルリクエストとしてメインブランチにマージされます。 
+4. **日本語に翻訳 🇯🇵**: Google Gemini API🧠を用いて、論文情報を日本語に翻訳します。
+5. **日本語の要約作成 📝**:  Google Gemini API🧠を用いて、翻訳された論文情報を要約します。
+6. **Issue作成 & タグ付け 🏷️**:  論文情報に基づき、GitHub API🐙を用いてIssueを作成し、適切なラベルを付与します。 
+7. **ユーザーからのコメント受信 & 返信 💬**: ユーザー🧑‍💻がIssueにコメントすると、Yukihiko🤖はGitHub API🐙から通知を受け取ります。
+8. **雪彦によるコメント生成 🎭**: Yukihiko🤖は、Issueのコメント履歴と雪彦の設定情報を読み込み、Google Gemini API🧠を用いて、雪彦のペルソナでコメントを生成します。
+9. **雪彦のコメント投稿 💬**:  生成された雪彦のコメントは、GitHub API🐙を通じてIssueに追加されます。 
 
 ## Yukihikoの利点 👍
 
@@ -163,13 +186,7 @@ sequenceDiagram
 * **全自動**: 全自動で動作するため、手間がかかりません。
 * **日本語対応**: 日本語で論文情報が提供されるため、理解しやすいです。
 * **GitHub連携**: GitHubと連携しているため、Issueとして論文情報を管理できます。
-
-## Yukihikoの今後の展望 👀
-
-* より多くの論文ソースへの対応
-* 翻訳精度の向上
-* 要約精度の向上
-* ユーザーインターフェースの提供
+* **インタラクティブな情報共有**: AI研究員「雪彦」との対話を通じて、より深く論文の内容を理解し、議論を活発化させることができます。
 
 ## 免責事項 🙏
 
@@ -178,3 +195,9 @@ sequenceDiagram
 ## ライセンス 📄
 
 MIT License
+```
+
+**変更点:**
+
+- 雪彦との対話機能について追記しました。
+- その他、構成や表現を一部変更しました。 

@@ -43,6 +43,8 @@ YukihikoはGitHub Actionsで動作する、サーバーレスで全自動のAI�
 最新の機械学習論文を収集し、GitHubのIssueとして報告します。 
 忙しい研究者や開発者のために、最新の研究動向を効率的に把握するお手伝いをします。
 
+https://github.com/user-attachments/assets/a3e98727-1518-493a-8238-964270dd4a95
+
 ## Yukihikoの特徴 ✨
 
 * **自動論文収集**: arXivとHugging Faceから最新の機械学習論文を自動的に収集します。

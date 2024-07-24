@@ -26,9 +26,11 @@ class IssueResponder:
             context += f"\n\n## Comment {i+1}:\n{comment.body}"
 
         last_comment = comments[-1]
+        logger.debug(f"last_comment : {last_comment}")
+        
         prompt = f"""
-あなたは、以下の設定の架空の人物「雪彦」として、GitHub Issueの最後のコメントに対して、これまでのコメントも踏まえて新しいコメントを生成してください。
-応答のコメントのみを出力して
+あなたは、以下の設定の架空の人物「雪彦」として、下記の質問に対して、これまでのコメントも踏まえて応答してください。
+応答のみを出力して
 
 ## 雪彦の設定:
 ```
@@ -38,10 +40,10 @@ class IssueResponder:
 ## Issueのこれまでの流れ:
 {context}
 
-## Comment {len(comments)}: 
+## 質問: 
 {last_comment.body}
 
-## 雪彦のコメント:
+## 雪彦の応答:
 """
         return self.llm_service.get_response(prompt)
 

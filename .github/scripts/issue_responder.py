@@ -9,24 +9,39 @@ from services.llm_service import LLMService
 from services.github_service import GitHubService
 
 class IssueResponder:
-    def __init__(self):
+    def __init__(self, persona_path="persona.md"):
         self.llm_service = LLMService()
         self.github_service = GitHubService()
         self.settings = get_settings()
+        self.persona = self.load_persona(persona_path)
+
+    def load_persona(self, persona_path):
+        with open(persona_path, "r", encoding="utf-8") as f:
+            persona = f.read()
+        return persona
 
     def generate_response(self, issue_title: str, issue_body: str, comments: list) -> str:
-        # issue_bodyとコメントを結合してLLMへの入力を準備
         context = f"## Issue Title:\n{issue_title}\n\n## Issue Body:\n{issue_body}"
-        for i, comment in enumerate(comments):
+        for i, comment in enumerate(comments[:-1]):
             context += f"\n\n## Comment {i+1}:\n{comment.body}"
 
+        last_comment = comments[-1]
         prompt = f"""
-あなたは、親切で役に立つAIアシスタントです。
+あなたは、以下の設定の架空の人物「雪彦」として、GitHub Issueの最後のコメントに対して、これまでのコメントも踏まえて新しいコメントを生成してください。
+応答のコメントのみを出力して
 
-以下のGitHub Issueに対して、新しいコメントを生成してください。
+## 雪彦の設定:
+```
+{self.persona}
+```
+
+## Issueのこれまでの流れ:
 {context}
 
-## 新しいコメント:
+## Comment {len(comments)}: 
+{last_comment.body}
+
+## 雪彦のコメント:
 """
         return self.llm_service.get_response(prompt)
 
@@ -37,7 +52,7 @@ class IssueResponder:
 
         # 自分以外のコメントがあれば応答を生成
         if comments and comments[-1].user.login != "yukihiko-fuyuki":
-            logger.info(f"#{issue.number} {issue.title} に返信します。")
+            logger.info(f"#{issue.number} {issue.title} の最後のコメントに雪彦として返信します。")
             response = self.generate_response(issue.title, issue.body, comments)
             self.github_service.add_comment(issue, response)
         else:
@@ -45,5 +60,5 @@ class IssueResponder:
 
 
 if __name__ == "__main__":
-    responder = IssueResponder()
+    responder = IssueResponder()  # persona.mdを読み込む
     responder.process_issue()

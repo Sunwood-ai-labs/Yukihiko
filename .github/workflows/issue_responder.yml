@@ -1,0 +1,34 @@
+name: Issueにコメントで応答
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  respond_to_comment:
+    runs-on: ubuntu-latest
+    steps:
+      # リポジトリのチェックアウト
+      - name: チェックアウト
+        uses: actions/checkout@v2
+
+      # Pythonのセットアップ
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      # 依存関係のインストール
+      - name: 依存関係のインストール
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/requirements.txt
+
+      # スクリプトの実行
+      - name: スクリプトの実行
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN_YUKIHIKO }}
+          ISSUE_NUMBER: ${{ github.event.issue.number || '0' }}
+        run: python .github/scripts/issue_responder.py
